@@ -13,7 +13,9 @@ Views.app = function(){
 			{ value:"Books", 			id:"books",
 				href:"/app/books", 		icon:"briefcase" },
 			{ value:"Templates",		id:"templates",
-				href:"/app/templates", 	icon:"cog" }
+				href:"/app/templates", 	icon:"cog" },
+			{ value:"Modules",		id:"modules",
+				href:"/app/modules", 	icon:"columns" }
 		]
 	};
 
