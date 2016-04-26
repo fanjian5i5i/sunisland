@@ -10,12 +10,12 @@ Views.app = function(){
 		data:[
 			{ value:"Dashboard", 		id:"dashboard",
 				href:"/app/dashboard", 	icon:"envelope-o" },
-			{ value:"Books", 			id:"books",
+			{ value:"Modules", 			id:"books",
 				href:"/app/books", 		icon:"briefcase" },
 			{ value:"Templates",		id:"templates",
-				href:"/app/templates", 	icon:"cog" },
-			{ value:"Modules",		id:"modules",
-				href:"/app/modules", 	icon:"columns" }
+				href:"/app/templates", 	icon:"cog" }
+			// { value:"Modules",		id:"modules",
+			// 	href:"/app/modules", 	icon:"columns" }
 		]
 	};
 

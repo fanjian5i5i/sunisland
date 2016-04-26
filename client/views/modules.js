@@ -44,19 +44,9 @@ Views.modules = function(){
 												},
 												{
 													cols:[
-														{ view:"combo", labelPosition: "top", label:"Place of Origin", options:[ 
-																			{ id:1, value:"China"   },
-																			{ id:2, value:"Europe"   }, 
-																			{ id:3, value:"USA" }
-																		]},
-		
-													]
-												},
-												{
-													cols:[
 														{ view:"combo", labelPosition: "top", label:"Technology", options:[ 
-																			{ id:1, value:"China"   },
-																			{ id:2, value:"Europe"   }
+																			{ id:1, value:"Monocrystalline"   },
+																			{ id:2, value:"Multicrystalline"   }
 																		]},
 		
 													]
@@ -64,37 +54,29 @@ Views.modules = function(){
 												{
 													cols:[
 														{ view:"combo", labelPosition: "top", label:"type", options:[ 
-																			{ id:1, value:"China"   },
-																			{ id:2, value:"Europe"   }, 
-																			{ id:3, value:"USA" }
+																			{ id:1, value:"N"   },
+																			{ id:2, value:"P"   }
 																		]},
 		
 													]
 												},
 												{
 													cols:[
-														{ view:"text", labelPosition: "top", label: "Dual Glass", placeholder: "Enter Dual Glass in Numerical format"},
-														// {width: 40},
-														// {}
+														{ view:"text", labelPosition: "top", label: "Dual Glass", options:[ 
+																			{ id:1, value:"Yes"   },
+																			{ id:2, value:"No"   }
+																		]},
 													]
 												},
 												{
 													cols:[
-														{ view:"combo", labelPosition: "top", label:"Snow Load", options:[ 
-																			{ id:1, value:"China"   },
-																			{ id:2, value:"Europe"   }, 
-																			{ id:3, value:"USA" }
-																		]},
+														{ view:"text", labelPosition: "top", label: "Snow Load", placeholder: "Enter Snow Load."},
 		
 													]
 												},
 												{
 													cols:[
-														{ view:"combo", labelPosition: "top", label:"Wind Load", options:[ 
-																			{ id:1, value:"China"   },
-																			{ id:2, value:"Europe"   }, 
-																			{ id:3, value:"USA" }
-																		]},
+														{ view:"text", labelPosition: "top", label: "Wind Load", placeholder: "Enter Wind Load."},
 		
 													]
 												},												

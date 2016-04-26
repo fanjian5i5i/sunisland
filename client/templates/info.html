@@ -1,18 +1,18 @@
 <template name="info">
 	<blockquote>
-		<h4>Book info</h4>
-		<li>Name: {{name}}</li>
-		<li>Author: {{author}}</li>
+		<h4>Module Info</h4>
+		<li>Name: {{Type}}</li>
+		<li>Place of Oirgin: {{Technology}}</li>
 	</blockquote>
 </template>
 
 <template name="allinfo">
 	<blockquote>
-		<h3>All books</h3>
-		{{#each books}}
-			<h4>Book info</h4>
-			<li>Name: {{name}}</li>
-			<li>Author: {{author}}</li>
+		<h3>All Modules</h3>
+		{{#each modules}}
+			<h4>Module info</h4>
+			<li>Name: {{Type}}</li>
+			<li>Place of Oirgin: {{Technology}}</li>
 		{{/each}}
 	</blockquote>
 </template>

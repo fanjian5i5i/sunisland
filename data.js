@@ -15,8 +15,18 @@ if (Meteor.isServer){
 
 	if (!Modules.find().count()){
 		Modules.insert({
-			generalInfo:"Test",
-			title:"General Information"
+			moduleName:"Test",
+			placeOfOrigin:"China",
+			Technology:"Mono",
+			Type:"N",
+			dualGLass:"N",
+			snowLoad:60,
+			windLoad:90,
+			features:"Just some random text.. .asdfadfad.a.sd.fasdfa...dasdfasdfasdfsad",
+			power:100,
+			weight: 100,
+			productWarranty:20,
+			price:0.9
 		});
 
 	}

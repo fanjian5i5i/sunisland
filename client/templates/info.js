@@ -1,5 +1,5 @@
 Template.allinfo.helpers({
-	books:function(){
-		return Books.find();
+	modules:function(){
+		return Modules.find();
 	}
 });
