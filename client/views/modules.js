@@ -1,5 +1,5 @@
 Views.modules = function(){
-
+	var proxy = webix.proxy("meteor", Modules);
 	var templates = {
 		gravity:3,
 		type: "clean",
@@ -14,6 +14,8 @@ Views.modules = function(){
 				cells:[
 					{
 						id: "generalInfo",
+						url: 	proxy,
+						save:   proxy,
 						rows:[
 								{
 									view: "form",
@@ -32,20 +34,78 @@ Views.modules = function(){
 												},
 												{
 													cols:[
-														{ view:"text", labelPosition: "top", label: "Place of Origin", placeholder: "Enter Place of Origin."},
+														{ view:"combo", labelPosition: "top", label:"Place of Origin", options:[ 
+																			{ id:1, value:"China"   },
+																			{ id:2, value:"Europe"   }, 
+																			{ id:3, value:"USA" }
+																		]},
+		
+													]
+												},
+												{
+													cols:[
+														{ view:"combo", labelPosition: "top", label:"Place of Origin", options:[ 
+																			{ id:1, value:"China"   },
+																			{ id:2, value:"Europe"   }, 
+																			{ id:3, value:"USA" }
+																		]},
+		
+													]
+												},
+												{
+													cols:[
+														{ view:"combo", labelPosition: "top", label:"Technology", options:[ 
+																			{ id:1, value:"China"   },
+																			{ id:2, value:"Europe"   }
+																		]},
+		
+													]
+												},
+												{
+													cols:[
+														{ view:"combo", labelPosition: "top", label:"type", options:[ 
+																			{ id:1, value:"China"   },
+																			{ id:2, value:"Europe"   }, 
+																			{ id:3, value:"USA" }
+																		]},
+		
+													]
+												},
+												{
+													cols:[
+														{ view:"text", labelPosition: "top", label: "Dual Glass", placeholder: "Enter Dual Glass in Numerical format"},
 														// {width: 40},
 														// {}
 													]
 												},
 												{
-
 													cols:[
-														{ view:"combo", labelPosition: "top", label:"From", suggest:"cities", placeholder:"Select departure point"},
-														{width: 40},
-														{view:"combo", labelPosition: "top", label:"To",  suggest:"cities", placeholder:"Select destination"}
+														{ view:"combo", labelPosition: "top", label:"Snow Load", options:[ 
+																			{ id:1, value:"China"   },
+																			{ id:2, value:"Europe"   }, 
+																			{ id:3, value:"USA" }
+																		]},
+		
 													]
 												},
-												{inputWidth: 100,view:"button", type:"form", value:"Search", align: "left"}
+												{
+													cols:[
+														{ view:"combo", labelPosition: "top", label:"Wind Load", options:[ 
+																			{ id:1, value:"China"   },
+																			{ id:2, value:"Europe"   }, 
+																			{ id:3, value:"USA" }
+																		]},
+		
+													]
+												},												
+												{inputWidth: 100,view:"button", type:"form", value:"Next", align: "left",
+													click:function(){
+																	// var row = $$("dtable").add({ name:"", author:"" });
+																	// $$("dtable").editCell(row, "name")
+																	console.log(123);
+																	var module_gi = $$("generalInfo").add({generalInfo:"123",title:"123test"})
+																}
+												}
 											]
 										},
 										{}

@@ -1,5 +1,5 @@
 Views.templates = function(){
-
+	
 	var templates = {
 		cols:[
 			{ header:"Webix Data Binding (select row in table)", body:{
