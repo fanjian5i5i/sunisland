@@ -1,6 +1,6 @@
 LoggedInNav = React.createClass({
 	render(){
-		console.log(this.props);
+		// console.log(this.props);
 		return (
 			<ul id="nav-mobile" className="right hide-on-med-and-down">
 			  <li><a href="/">Home</a></li>
