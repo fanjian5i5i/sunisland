@@ -1,0 +1,22 @@
+/* CSS declarations go here */
+body{
+	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.jumbotron{
+	height:760px;
+}
+
+a.list-group-item.active{
+	border-color: #2c3e50;
+	border-top-color: #ecf0f1;
+}
+
+.panel-body-left{
+	padding:0px;
+}
+
+.panel{
+	height: 650px;
+}
