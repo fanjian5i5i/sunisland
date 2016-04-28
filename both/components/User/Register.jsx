@@ -1,15 +1,11 @@
 Register = React.createClass({
 	onSubmit(e){
 		e.preventDefault();
-		console.log(e);
 		var ele = $(e.target);
 
 		var email = ele.find("#email").val();
 		var password = ele.find("#password").val();
 		var confirmPassword = ele.find("#confirmPassword").val();
-		console.log(email);
-		console.log(password);
-		console.log(confirmPassword);
 
 		if(password === confirmPassword && password != "" && confirmPassword != ""){
 			var accountInfo = {
