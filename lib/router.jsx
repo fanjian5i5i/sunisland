@@ -26,6 +26,37 @@ privateRoutes.route('/dashboard', {
         })
     }
 });
+privateRoutes.route('/newmodule', {
+    name: 'AddNewModule.html',
+    action: function () {
+
+        ReactLayout.render(Layout, {
+            sidebar: <Sidebar/>,
+            content: <Inputtab/>
+        })
+    }
+});
+privateRoutes.route('/newmodule/electricalinfo', {
+    name: 'electricalinfo.html',
+    action: function () {
+
+        ReactLayout.render(Layout, {
+            sidebar: <Sidebar/>,
+            content: <Electricalinfo/>
+        })
+    }
+});
+privateRoutes.route('/newmodule/mechanicalinfo', {
+    name: 'electricalinfo.html',
+    action: function () {
+
+        ReactLayout.render(Layout, {
+            sidebar: <Sidebar/>,
+            content: <Mechanicalinfo/>
+        })
+    }
+});
+
 privateRoutes.route('/messages', {
     name: 'Messages',
     action: function () {

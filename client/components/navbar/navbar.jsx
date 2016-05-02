@@ -31,7 +31,7 @@ Navbar = React.createClass({
             fullname = this.data.currentUser.profile.firstname + ' ' + this.data.currentUser.profile.lastname;
         }
         return (
-        <div className="navbar navbar-blue navbar-fixed-top">
+        <div className="navbar navbar-orange navbar-fixed-top">
             <div className="navbar-header">
                 <button className="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                     <span className="sr-only">Toggle</span>
@@ -39,7 +39,7 @@ Navbar = React.createClass({
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-                <a href="/dashboard" className="navbar-brand logo"><i className="fa fa-facebook"></i></a>
+                <a href="/dashboard" className="navbar-brand navbar-brand-orange">SUN ISLAND Account Manager</a>
             </div>
             <nav className="collapse navbar-collapse" role="navigation">
                 <form onSubmit={this.handleSubmit}  className="navbar-form navbar-left">
@@ -52,7 +52,7 @@ Navbar = React.createClass({
                 </form>
                 <ul className="nav navbar-nav">
                     <li>
-                        <a href="/dashboard"><i className="fa fa-home"></i> News Feed</a>
+                        <a href="/dashboard"><i className="fa fa-home"></i>Dashboard</a>
                     </li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">

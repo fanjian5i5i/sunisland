@@ -30,3 +30,4 @@ npm-container
 cfs:standard-packages
 cfs:filesystem
 momentjs:moment
+meteortoys:allthings
