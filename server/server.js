@@ -26,6 +26,12 @@ Meteor.startup(function () {
         DBAds.insert({title: 'First Advertisement', text: 'This is on sale now.'});
     }
     Meteor.methods({
+        'Modules.insert': function (params) {
+            var module = params;
+            module.createdAt = new Date();
+            module.user = Meteor.user();
+            Modules.insert(module);
+        },
         'Posts.insert': function (message, imageurl) {
             var post = {
                 user: Meteor.user(),
