@@ -16,8 +16,16 @@ Electricalinfo = React.createClass({
             email:this.data && this.data.currentUser && this.data.currentUser.emails ? this.data.currentUser.emails[0].address:'you@yourdomain.com'
         }
     },
-    goNext(){
-        FlowRouter.go('/newmodule/mechanicalinfo');
+    saveAndContinue(e){
+      e.preventDefault();
+      var data = {
+        power:this.refs.power.value,
+        powerTolerance:this.refs.powerTolerance.value,
+        efficiency:this.refs.efficiency.value,
+       }
+      this.props.saveValues(data);
+      this.props.nextStep();
+        // FlowRouter.go('/newmodule/electricalinfo');
     },
     goBack(){
         FlowRouter.go('/newmodule/');
@@ -35,28 +43,28 @@ Electricalinfo = React.createClass({
                         <div className="form-group">
                             <label htmlFor="power">Power:</label>
                             <div className="input-group">
-                                <input id="power" type="number" className="form-control" aria-describedby="basic-addon1"/>
+                                <input id="power" type="number" className="form-control" aria-describedby="basic-addon1" ref="power" defaultValue={this.props.fieldValues.power}/>
                                 <span className="input-group-addon" id="basic-addon1">Wp</span>
                             </div>
                         </div>
                         <div className="form-group">
                             <label htmlFor="powerTolerance">Power Tolerance:</label>
                             <div className="input-group">
-                                <input id="powerTolerance" type="number" className="form-control" aria-describedby="basic-addon1"/>
+                                <input id="powerTolerance" type="number" className="form-control" aria-describedby="basic-addon1" ref="powerTolerance" defaultValue={this.props.fieldValues.powerTolerance}/>
                                 <span className="input-group-addon" id="basic-addon1">%</span>
                             </div>
                         </div>
                         <div className="form-group">
                             <label htmlFor="efficiency">Module Efficiency:</label>
                             <div className="input-group">
-                                <input id="efficiency" type="number" className="form-control" aria-describedby="basic-addon2"/>
+                                <input id="efficiency" type="number" className="form-control" aria-describedby="basic-addon2" ref="efficiency" defaultValue={this.props.fieldValues.efficiency}/>
                                 <span className="input-group-addon" id="basic-addon2">%</span>
                             </div>
                         </div>
 
                         <div className="form-group">
-                          <button type="button" className="btn btn-info pull-left" onClick={this.goBack}>Back</button>
-                          <button type="button" className="btn btn-success pull-right" onClick={this.goNext}>Next</button>
+                          <button type="button" className="btn btn-info pull-left" onClick={this.props.previousStep}>Back</button>
+                          <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save And Continue</button>
                         </div> 
                       </div>
                     </div>

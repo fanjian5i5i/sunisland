@@ -17,7 +17,7 @@ Generalinfo = React.createClass({
         }
     },
     saveAndContinue(e){
-      e.preventDefault()
+      e.preventDefault();
       var data = {
        moduleName : this.refs.moduleName.value,
        poo : this.refs.poo.value,
@@ -32,9 +32,8 @@ Generalinfo = React.createClass({
        keyfeature : this.refs.keyfeature.value,
 
        }
-      this.props.saveValues(data)
-      this.props.nextStep()
-      console.log(this.state);
+      this.props.saveValues(data);
+      this.props.nextStep();
         // FlowRouter.go('/newmodule/electricalinfo');
     },
     render(){
@@ -47,11 +46,11 @@ Generalinfo = React.createClass({
                       <div className="panel-body">
                         <div className="form-group">
                           <label htmlFor="moduleName">Module Name:</label>
-                          <input type="text" className="form-control" id="usr" ref="moduleName"/>
+                          <input type="text" className="form-control" id="usr" ref="moduleName" defaultValue={this.props.fieldValues.moduleName}/>
                         </div>
                         <div className="form-group">
                           <label htmlFor="poo">Place of Origin:</label>
-                          <select className="form-control" id="poo" ref="poo">
+                          <select className="form-control" id="poo" ref="poo" defaultValue={this.props.fieldValues.poo}>
                             <option>China</option>
                             <option>Europe</option>
                             <option>USA</option>
@@ -59,28 +58,28 @@ Generalinfo = React.createClass({
                         </div>
                         <div className="form-group">
                           <label htmlFor="technology">Technology:</label>
-                          <select className="form-control" id="technology" ref="technology">
+                          <select className="form-control" id="technology" ref="technology" defaultValue={this.props.fieldValues.technology}>
                             <option>Monocrystalline</option>
                             <option>Multicrystalline</option>
                           </select>
                         </div>
                         <div className="form-group">
                           <label htmlFor="type">Type:</label>
-                          <select className="form-control" id="type" ref="type">
+                          <select className="form-control" id="type" ref="type" defaultValue={this.props.fieldValues.type}>
                             <option>N</option>
                             <option>P</option>
                           </select>
                         </div>
                         <div className="form-group">
                           <label htmlFor="dualglass">Dual glass:</label>
-                          <select className="form-control" id="dualglass" ref="dualglass">
+                          <select className="form-control" id="dualglass" ref="dualglass" defaultValue={this.props.fieldValues.dualglass}> 
                             <option>Yes</option>
                             <option>No</option>
                           </select>
                         </div>
                         <div className="form-group">
                           <label htmlFor="antipid">Anti-PID:</label>
-                          <select className="form-control" id="antipid" ref="antipid">
+                          <select className="form-control" id="antipid" ref="antipid" defaultValue={this.props.fieldValues.antipid}>
                             <option>Yes</option>
                             <option>No</option>
                           </select>
@@ -88,20 +87,20 @@ Generalinfo = React.createClass({
                         <div className="form-group">
                             <label htmlFor="snowload">Snow Load:</label>
                             <div className="input-group">
-                                <input id="snowload" type="number" className="form-control" aria-describedby="basic-addon1" ref="snowload"/>
+                                <input id="snowload" type="number" className="form-control" aria-describedby="basic-addon1" ref="snowload" defaultValue={this.props.fieldValues.snowload}/>
                                 <span className="input-group-addon" id="basic-addon1">Pa</span>
                             </div>
                         </div>
                         <div className="form-group">
                             <label htmlFor="windload">Wind Load:</label>
                             <div className="input-group">
-                                <input id="windload" type="number" className="form-control" aria-describedby="basic-addon2" ref="windload"/>
+                                <input id="windload" type="number" className="form-control" aria-describedby="basic-addon2" ref="windload" defaultValue={this.props.fieldValues.windload}/>
                                 <span className="input-group-addon" id="basic-addon2">Pa</span>
                             </div>
                         </div>
                         <div className="form-group">
                           <label htmlFor="keyfeature">Key Features:</label>
-                          <textarea className="form-control" rows="5" id="keyfeature" ref="keyfeature"></textarea>
+                          <textarea className="form-control" rows="5" id="keyfeature" ref="keyfeature" defaultValue={this.props.fieldValues.keyfeature}></textarea>
                         </div>  
                         <div className="form-group">
                           <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save And Continue</button>

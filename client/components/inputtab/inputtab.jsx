@@ -1,9 +1,15 @@
 var fieldValues = {
-         name : null,
-         email : null,
-         password : null,
-         age : null,
-         colors : []
+         moduleName : null,
+         poo : null,
+         technology : null,
+         moduleName : null,
+         type : null,
+         dualglass : null,
+         antipid : null,
+         snowload : null,
+         windload : null,
+         moduleName : null,
+         keyfeature : null,
 }
 
 Inputtab = React.createClass({
@@ -29,7 +35,6 @@ Inputtab = React.createClass({
         }
     },
     saveValues(fields) {
-     console.log(fieldValues);
      return function() {
      // Remember, `fieldValues` is set at the top of this file, we are simply appending
      // to and overriding keys in `fieldValues` with the `fields` with Object.assign
@@ -52,13 +57,19 @@ Inputtab = React.createClass({
     },
     render(){
 
-        var fieldValues = {
-             name : null,
-             email : null,
-             password : null,
-             age : null,
-             colors : []
-        };
+        // var fieldValues = {
+        //     moduleName : null,
+        //     poo : null,
+        //     technology : null,
+        //     moduleName : null,
+        //     type : null,
+        //     dualglass : null,
+        //     antipid : null,
+        //     snowload : null,
+        //     windload : null,
+        //     moduleName : null,
+        //     keyfeature : null,
+        // };
 
              switch(this.state.step) {
              case 1:return (
@@ -72,7 +83,7 @@ Inputtab = React.createClass({
              case 2:return (
                         <div className="row">
                             <div className="container">
-                                <Electricalinfo/>
+                                <Electricalinfo fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues}/>
                                 
                             </div>
                         </div>
