@@ -10,6 +10,9 @@ var fieldValues = {
          windload : null,
          moduleName : null,
          keyfeature : null,
+         power:null,
+         powerTolerance:null,
+         efficiency:null,
 }
 
 Inputtab = React.createClass({
@@ -42,7 +45,13 @@ Inputtab = React.createClass({
      fieldValues = Object.assign({}, fieldValues, fields)
      }()
     },
-
+    saveToCollection(){
+        Meteor.call('Modules.insert',fieldValues,function(err){
+            if(err){
+                console.log(err);
+            }
+        });
+    },
     nextStep() {
      this.setState({
      step : this.state.step + 1
@@ -91,7 +100,7 @@ Inputtab = React.createClass({
              case 3:return (
                         <div className="row">
                             <div className="container">
-                                <Mechanicalinfo/>
+                                <Mechanicalinfo fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues} saveToCollection={this.saveToCollection}/>
                                 
                             </div>
                         </div>

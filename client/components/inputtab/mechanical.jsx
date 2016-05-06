@@ -17,46 +17,25 @@ Mechanicalinfo = React.createClass({
             email:this.data && this.data.currentUser && this.data.currentUser.emails ? this.data.currentUser.emails[0].address:'you@yourdomain.com'
         }
     },
-    goNext(){
-        console.log(this.state);
-    },
     goBack(){
         FlowRouter.go('/newmodule/electricalinfo');
     },
     handleSubmit(e){
         e.preventDefault();
-        var that = this;
-        var cellOrientation = this.refs.cellOrientation.value;
-        var solarCell = this.refs.solarCell.value;
-        var weight = this.refs.weight.value;
-        var busbarsSolarCell = this.refs.busbarsSolarCell.value;
-        var frontGlassThickness = this.refs.frontGlassThickness.value;
-        var frameColor = this.refs.frameColor.value;
-        var junctionBox = this.refs.junctionBox.value;
-        var cables = this.refs.cables.value;
-        var connector = this.refs.connector.value;
-        var junctionBox = this.refs.junctionBox.value;
-        var params = {
-            cellOrientation:cellOrientation,
-            solarCell:solarCell,
-            weight:weight,
-            busbarsSolarCell:busbarsSolarCell,
-            frontGlassThickness:frontGlassThickness,
-            frameColor:frameColor,
-            junctionBox:junctionBox,
-            cables:cables,
-            connector:connector,
-            junctionBox:junctionBox
-        };
-            Meteor.call('Modules.insert',params,function(err){
-                if(err){
-                    console.log(err);
-                }
-            });
-            // this.setState({filename:''});
-        // this.resetFields();
 
-
+        var data = {
+           cellOrientation : this.refs.cellOrientation.value,
+           solarCell : this.refs.solarCell.value,
+           weight : this.refs.weight.value,
+           busbarsSolarCell : this.refs.busbarsSolarCell.value,
+           frontGlassThickness : this.refs.frontGlassThickness.value,
+           frameColor : this.refs.frameColor.value,
+           junctionBox : this.refs.junctionBox.value,
+           cables : this.refs.connector.value,
+           connector : this.refs.cables.value
+       }
+      this.props.saveValues(data);
+      this.props.saveToCollection();
     },
     render(){
         // console.log(this.state);
@@ -125,7 +104,7 @@ Mechanicalinfo = React.createClass({
                           <textarea className="form-control" rows="2" id="connector" ref="connector"></textarea>
                         </div>  
                         <div className="form-group">
-                          <button type="button" className="btn btn-info pull-left" onClick={this.goBack}>Back</button>
+                          <button type="button" className="btn btn-info pull-left" onClick={this.props.previousStep}>Back</button>
                           <button type="button" className="btn btn-success pull-right" onClick={this.goNext}>Next</button>
                           <button type="button" className="btn btn-success pull-right" onClick={this.handleSubmit}>Sumbit</button>
                         </div> 

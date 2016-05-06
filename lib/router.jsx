@@ -22,7 +22,7 @@ privateRoutes.route('/dashboard', {
 
         ReactLayout.render(Layout, {
             sidebar: <Sidebar/>,
-            content: <Main/>
+            content: <Modulelist/>
         })
     }
 });
