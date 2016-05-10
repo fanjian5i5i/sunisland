@@ -6,25 +6,27 @@
 Reaktor.init(
   <Router>
     <Route path="/" content={Home} layout={MainLayout} />
-    <Route path="/register" content={Register} layout={MainLayout} triggersEnter = {isLoggedIn}/>
-    <Route path="/login" content={Login} layout={MainLayout} triggersEnter = {isLoggedIn}/>
-    <Route path="/changePassword" content={ChangePassword} layout={MainLayout} triggersEnter = {isNotLoggedIn}/>
+    <Route path="/register" content={Register} layout={MainLayout} triggersEnter={isLoggedIn} />
+    <Route path="/login" content={Login} layout={MainLayout} triggersEnter={isLoggedIn} />
+    <Route path="/changePassword" content={ChangePassword} layout={MainLayout} triggersEnter={isNotLoggedIn} />
+    <Route path="/Dashboard" content={PDFContainer} layout={MainLayout} triggersEnter={isNotLoggedIn} />
   </Router>
 );
 
+// Checks if user is logged in
 function isLoggedIn(context, doRedirect) {
-
-	if(User.isLoggedIn()){
-		doRedirect('/');
-	}
-}
-
-function isNotLoggedIn(context, doRedirect) {
-
-  if(!User.isLoggedIn()){
+  if(User.isLoggedIn()) {
     doRedirect('/');
   }
 }
+
+// Checks if user is logged in
+function isNotLoggedIn(context, doRedirect) {
+  if(!User.isLoggedIn()) {
+    doRedirect('/');
+  }
+}
+
 // Reaktor doensn't have a notFound component yet
 FlowRouter.notFound = {
   action() {

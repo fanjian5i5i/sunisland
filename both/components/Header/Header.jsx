@@ -16,7 +16,7 @@ Header = React.createClass({
   },
   render() {
     var navStyle = {
-      backgroundColor:"#f57c00", 
+      backgroundColor:"#292929", 
       paddingLeft:"12px"
     };
 
@@ -25,7 +25,7 @@ Header = React.createClass({
     return (
       <nav style={navStyle}>
           <div className="nav-wrapper">
-            <a href="/" className="brand-logo">SUNISLAND</a>
+            <a href="/" className="brand-logo">Boston Redevelopment Authority</a>
               {navOptions}
           </div>
         </nav>

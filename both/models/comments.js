@@ -1,19 +1,12 @@
-Modules = new Mongo.Collection('modules');
+Comments = new Mongo.Collection('comments');
 	
 if (Meteor.isServer) {
-	Modules.allow({
-		'insert':function(userId, name, power, price, createdAt){
+	Comments.allow({
+		'insert':function(userId, text, createdAt){
 			return true;
 		}
 	});
 
-	// Modules.insert({
-	//   userId: 'oWwoaeX3L72sNr9wB',
-	//   name: 'Module 1', 
-	//   power: '100W', 
-	//   price:'1',	 
-	//   createdAt: new Date(), // current time
-	// });
 	// Modules.insert({
 	//   name: 'Module 1', 
 	//   power: '100W', 
@@ -36,12 +29,11 @@ if (Meteor.isServer) {
 
 if (Meteor.isServer) {
   // This code only runs on the server
-  	Meteor.publish('modules', function modulesPublication() {
-    	return Modules.find();
+  	Meteor.publish('comments', function commentsPublication() {
+    	return Comments.find();
   });
 }
 if(Meteor.isClient){
-   Meteor.subscribe("modules", function(){
-      console.log(Modules, Modules.find(), Modules.find().fetch());
+   Meteor.subscribe("comments", function(){
    });
 }
