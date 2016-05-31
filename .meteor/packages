@@ -31,3 +31,4 @@ cfs:standard-packages
 cfs:filesystem
 momentjs:moment
 meteortoys:allthings
+chrismbeckett:toastr

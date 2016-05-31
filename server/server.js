@@ -32,6 +32,12 @@ Meteor.startup(function () {
             module.user = Meteor.user();
             Modules.insert(module);
         },
+        'Modules.update': function(params){
+            console.log(params.moduleName);
+            Modules.update(params._id, {
+                  $set: params,
+                });
+        },
         'Posts.insert': function (message, imageurl) {
             var post = {
                 user: Meteor.user(),

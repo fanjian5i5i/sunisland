@@ -12,18 +12,46 @@ Modulelist = React.createClass({
     },
     getInitialState(){
         return {
-            limit:3
+            limit:3,
+            currentModule:{test:"test"},
+            controlledModalOpen : false
         }
+    },
+    openModal () {
+        this.setState({
+          controlledModalOpen : true
+        });
+      },
+    closeModal () {
+      this.setState({
+        controlledModalOpen : false
+      });
     },
     addMore:function(){
         this.setState({limit:this.state.limit + 3});
     },
 
     editModule(module, e){
-      console.log(this.data.modules);
-       console.log(module);
-    },
+      var that = this;
+       this.setState({currentModule:module},function(){
+        this.refs.moduleName.value = module.moduleName;
+        this.refs.technology.value = module.technology;
+        this.refs.power.value = module.power;
+        this.refs.efficiency.value = module.efficiency;
+        console.log(this.state);
 
+       });
+    },
+    handleChange(moduleName,e){
+      var that = this;
+      var midState = this.state.currentModule;
+      midState.moduleName = that.refs.moduleName.value;
+      this.setState({currentModule:midState});
+      // console.log(this.state.currentModule);
+    },
+    changeModule(e){
+      e.preventDefault();
+    },
     render(){
       var that = this;
         var modules = this.data.modules.map(function (module) {
@@ -75,21 +103,25 @@ Modulelist = React.createClass({
                                     <form>
                                       <div className="form-group">
                                         <label htmlFor="exampleInputEmail1">Module Name</label>
-                                        <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email"/>
+                                        <input type="text" className="form-control" ref="moduleName" onChange={this.handleChange.bind(this,this.state.currentModule.moduleName)}  placeholder="Module Name"/>
                                       </div>
                                       <div className="form-group">
-                                        <label htmlFor="exampleInputPassword1">Password</label>
-                                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                                        <label htmlFor="exampleInputPassword1">Technology</label>
+                                        <input type="text" className="form-control" ref="technology" defaultValue={this.state.currentModule.technology} onChange={this.handleChange} placeholder="Technology"/>
                                       </div>
                                       <div className="form-group">
-                                        <label htmlFor="exampleInputEmail1">Email address</label>
-                                        <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email"/>
+                                        <label htmlFor="exampleInputEmail1">Power</label>
+                                        <input type="text" className="form-control" ref="power" defaultValue={this.state.currentModule.power} onChange={this.handleChange} placeholder="Power"/>
                                       </div>
                                       <div className="form-group">
-                                        <label htmlFor="exampleInputPassword1">Password</label>
-                                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                                        <label htmlFor="exampleInputPassword1">Efficiency</label>
+                                        <input type="text" className="form-control" ref="efficiency" defaultValue={this.state.currentModule.efficiency} onChange={this.handleChange} placeholder="Efficiency"/>
                                       </div>
-                                      <button type="submit" className="btn btn-default">Submit</button>
+                                      <div className="form-group">
+                                        <label htmlFor="exampleInputPassword1">Price</label>
+                                        <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Price"/>
+                                      </div>
+                                      <ConfirmModal currentModule={this.state.currentModule}/>
                                     </form>
                                   </div>
                                 </div>
