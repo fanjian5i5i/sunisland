@@ -15,17 +15,11 @@ Sidebar = React.createClass({
             )
         });
         return (
-            <div className="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
-                <ul className="nav">
-                    <li>
-                        <a href="#" data-toggle="offcanvas" className="visible-xs text-center">
-                            <i className="fa fa-list-alt"></i>
-                        </a>
-                    </li>
-                </ul>
-                <ul className="nav hidden-xs" id="lg-menu">
-                    {rows}
-                </ul>
+            <div>
+                <ul id="slide-out" className="side-nav fixed side-nav-margin">
+                      <li><a href="#!">First Sidebar Link</a></li>
+                      <li><a href="#!">Second Sidebar Link</a></li>
+                    </ul>
             </div>
         )
     }
