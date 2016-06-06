@@ -16,6 +16,9 @@ Electricalinfo = React.createClass({
             email:this.data && this.data.currentUser && this.data.currentUser.emails ? this.data.currentUser.emails[0].address:'you@yourdomain.com'
         }
     },
+    componentDidMount: function() {
+        Materialize.updateTextFields();
+    },
     saveAndContinue(e){
       e.preventDefault();
       var data = {
@@ -33,43 +36,28 @@ Electricalinfo = React.createClass({
     render(){
         // console.log(this.state);
         return (
-                  <div className="row">
-                      <div className="container">
-                    <div className="panel panel-default">
-                      <div className="panel-heading">
-                        <h3 className="panel-title">Electrical Information</h3>
+                <div className="input-tab">
+                  <form className="col s12">
+                    <div className="row">
+                      <div className="input-field col s12">
+                        <label htmlFor="power">Power(Wp):</label>
+                        <input id="power" type="number" ref="power" defaultValue={this.props.fieldValues.power}/>
                       </div>
-                      <div className="panel-body">
-                        <div className="form-group">
-                            <label htmlFor="power">Power:</label>
-                            <div className="input-group">
-                                <input id="power" type="number" className="form-control" aria-describedby="basic-addon1" ref="power" defaultValue={this.props.fieldValues.power}/>
-                                <span className="input-group-addon" id="basic-addon1">Wp</span>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="powerTolerance">Power Tolerance:</label>
-                            <div className="input-group">
-                                <input id="powerTolerance" type="number" className="form-control" aria-describedby="basic-addon1" ref="powerTolerance" defaultValue={this.props.fieldValues.powerTolerance}/>
-                                <span className="input-group-addon" id="basic-addon1">%</span>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="efficiency">Module Efficiency:</label>
-                            <div className="input-group">
-                                <input id="efficiency" type="number" className="form-control" aria-describedby="basic-addon2" ref="efficiency" defaultValue={this.props.fieldValues.efficiency}/>
-                                <span className="input-group-addon" id="basic-addon2">%</span>
-                            </div>
-                        </div>
-
-                        <div className="form-group">
-                          <button type="button" className="btn btn-info pull-left" onClick={this.props.previousStep}>Back</button>
-                          <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save And Continue</button>
-                        </div> 
+                      <div className="input-field col s12">
+                        <label htmlFor="powerTolerance">Power Tolerance(%):</label>
+                        <input id="powerTolerance" type="number" ref="powerTolerance" defaultValue={this.props.fieldValues.powerTolerance}/>
+                      </div>
+                      <div className="input-field col s12">
+                        <label htmlFor="power">Module Efficiency(%):</label>
+                        <input id="power" type="number" ref="efficiency" defaultValue={this.props.fieldValues.efficiency}/>
+                      </div>
+                      <div className="form-group">
+                        <button type="button" className="btn btn-info pull-left" onClick={this.props.previousStep}>Back</button>
+                        <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save And Continue</button>
                       </div>
                     </div>
-              </div>      
-            </div>
+                  </form>
+                </div>
         )
     }
 });

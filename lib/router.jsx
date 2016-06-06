@@ -36,6 +36,15 @@ privateRoutes.route('/newmodule', {
         })
     }
 });
+privateRoutes.route('/newmodule/:moduleId', {
+    name: 'AddNewModule.html',
+    action: function (params) {
+        ReactLayout.render(Layout, {
+            sidebar: <Sidebar/>,
+            content: <Inputtab moduleId={params.moduleId}/>
+        })
+    }
+});
 privateRoutes.route('/newmodule/electricalinfo', {
     name: 'electricalinfo.html',
     action: function () {

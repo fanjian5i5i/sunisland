@@ -26,6 +26,7 @@ Navbar = React.createClass({
         FlowRouter.go('/user/' + (this.refs.searchText.value).trim());
     },
     onClick: function(event) {
+        event.preventDefault();
         $('.dropdown-button').dropdown();
     },
     render(){
@@ -36,11 +37,11 @@ Navbar = React.createClass({
         return (
             <div className="navbar-fixed">
                <nav>
-                <div className="nav-wrapper">
+                <div className="nav-wrapper yellow darken-4">
                   <a href="#" className="brand-logo">SUN ISLAND Account Manager</a>
                   <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><a href="/dashboard"><i className="material-icons left">dashboard</i>Dashboard</a></li>
-                    <li><a className="dropdown-button" href="#!" data-activates="dropdown1" onClick={this.onClick}> {fullname}<i className="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a className="dropdown-button" data-activates="dropdown1" onClick={this.onClick}> {fullname}<i className="material-icons right">arrow_drop_down</i></a></li>
                   </ul>
                 </div>
               </nav>

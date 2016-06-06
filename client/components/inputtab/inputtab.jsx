@@ -20,6 +20,7 @@ Inputtab = React.createClass({
     mixins: [ReactMeteorData],
     
     getMeteorData(){
+        
         let data = {};
         data.currentUser = {};
         var handle = Meteor.subscribe("modules");
@@ -36,6 +37,36 @@ Inputtab = React.createClass({
             editmode:false,
             email:this.data && this.data.currentUser && this.data.currentUser.emails ? this.data.currentUser.emails[0].address:'you@yourdomain.com'
         }
+    },
+    componentDidMount: function() {
+        console.log(this.props.moduleId);
+        // var module_edit = Modules.findOne(this.props.moduleId);
+        // console.log(module_edit);
+        // setTimeout(function() {
+        //     if(module_edit){
+        //         fieldValues = module_edit;
+        //         console.log(fieldValues);
+        //     }else{
+        //         Materialize.toast('Cannot find module ' + this.props.moduleId, 4000);
+        //     }
+        // }, 2000);
+        // Modules.find({'_id':that.props.moduleId},function(err,cursor){
+        //     if(err){
+        //         console.log(err);
+        //         Materialize.toast('Cannot find module ' + that.props.moduleId, 4000);
+        //     }else{
+        //         console.log(cursor);
+        //     }
+        // })
+        Meteor.call('Modules.insert',this.props.moduleId,function(err,result){
+            if(err){
+                Materialize.toast('Cannot find module ' + that.props.moduleId, 4000);
+            }else{
+                console.log(result);
+                fieldValues = result;
+            }
+        });
+        
     },
     saveValues(fields) {
      return function() {
@@ -82,7 +113,8 @@ Inputtab = React.createClass({
 
              switch(this.state.step) {
              case 1:return (
-                        <div className="row">
+                        <div className="main-right">
+                            <InputHeader propsTitle={"General Information"}/>
                             <div className="container">
                                 <Generalinfo fieldValues={fieldValues} nextStep={this.nextStep} saveValues={this.saveValues}/>
                                 
@@ -90,7 +122,8 @@ Inputtab = React.createClass({
                         </div>
                     )
              case 2:return (
-                        <div className="row">
+                        <div className="main-right">
+                            <InputHeader propsTitle={"Electrical Information"}/>
                             <div className="container">
                                 <Electricalinfo fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues}/>
                                 
@@ -98,7 +131,8 @@ Inputtab = React.createClass({
                         </div>
                     )
              case 3:return (
-                        <div className="row">
+                        <div className="main-right">
+                            <InputHeader propsTitle={"Mechanical Information"}/>
                             <div className="container">
                                 <Mechanicalinfo fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues} saveToCollection={this.saveToCollection}/>
                                 

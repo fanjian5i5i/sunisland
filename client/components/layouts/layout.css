@@ -2,3 +2,27 @@
     margin-top: 64px;
     z-index: 0;
 }
+.icons-margin-top{
+    margin-top: 4px;
+}
+.main-right{
+    padding-left: 240px;
+}
+.secondNav{
+    height: 122px;
+    box-shadow: none;
+}
+nav.top-nav a.page-title{
+    line-height: 122px;
+    font-size: 48px;
+}
+.input-tab{
+    margin-top: 10px;
+}
+table > tbody > tr > td {
+    cursor:pointer;    
+}
+table.highlight > tbody > tr:hover {
+    background-color: #f9a825 !important;
+    color:white;
+}

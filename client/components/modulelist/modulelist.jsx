@@ -41,6 +41,7 @@ Modulelist = React.createClass({
         console.log(this.state);
 
        });
+     window.location.href = '/newmodule/'+module._id;
     },
     handleChange(moduleName,e){
       var that = this;
@@ -66,70 +67,32 @@ Modulelist = React.createClass({
               </tr>);
         }.bind(this));
         return (
-            <div className="col-sm-10 col-xs-11" id="main">
-                <div>
-                    <div className="full col-sm-9">
-                        <div className="row">
-                            <div className="col-sm-9">
-                              <div className="panel panel-default">
-                                <div className="panel-heading">
-                                  <h3 className="panel-title">Panel title</h3>
-                                </div>
-                              <div className="panel-body">    
-                                  <table className="table table-responsive table-hover">
-                                    <thead>
-                                      <tr>
-                                        <th>Module Name</th>
-                                        <th>Technology</th>
-                                        <th>Power</th>
-                                        <th>Efficiency</th>
-                                        <th>Price</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      {modules}
-                                    </tbody>
-                                  </table>
-                               </div>     
-                               </div>
-
-                            </div>
-                            <div className="col-sm-3">
-                                <div className="panel panel-default">
-                                  <div className="panel-heading">
-                                    <h3 className="panel-title">Edit</h3>
-                                  </div>
-                                  <div className="panel-body">
-                                    <form>
-                                      <div className="form-group">
-                                        <label htmlFor="exampleInputEmail1">Module Name</label>
-                                        <input type="text" className="form-control" ref="moduleName" onChange={this.handleChange.bind(this,this.state.currentModule.moduleName)}  placeholder="Module Name"/>
-                                      </div>
-                                      <div className="form-group">
-                                        <label htmlFor="exampleInputPassword1">Technology</label>
-                                        <input type="text" className="form-control" ref="technology" defaultValue={this.state.currentModule.technology} onChange={this.handleChange} placeholder="Technology"/>
-                                      </div>
-                                      <div className="form-group">
-                                        <label htmlFor="exampleInputEmail1">Power</label>
-                                        <input type="text" className="form-control" ref="power" defaultValue={this.state.currentModule.power} onChange={this.handleChange} placeholder="Power"/>
-                                      </div>
-                                      <div className="form-group">
-                                        <label htmlFor="exampleInputPassword1">Efficiency</label>
-                                        <input type="text" className="form-control" ref="efficiency" defaultValue={this.state.currentModule.efficiency} onChange={this.handleChange} placeholder="Efficiency"/>
-                                      </div>
-                                      <div className="form-group">
-                                        <label htmlFor="exampleInputPassword1">Price</label>
-                                        <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Price"/>
-                                      </div>
-                                      <ConfirmModal currentModule={this.state.currentModule}/>
-                                    </form>
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <main className="main-right">
+          <InputHeader propsTitle={"Module List"}/>
+                <div className="row">
+                    <div className="col s12">
+                      <table className="responsive-table highlight striped">
+                        <thead>
+                          <tr>
+                            <th>Module Name</th>
+                            <th>Technology</th>
+                            <th>Power</th>
+                            <th>Efficiency</th>
+                            <th>Price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {modules}
+                        </tbody>
+                      </table>
+                   </div>     
+                   
+                   <div className="form-group">
+                      <a className="btn-floating btn-large waves-effect waves-light red pull-right" href="/newmodule"><i className="material-icons">add</i></a>
+                   </div>
                 </div>
-            </div>
+                   
+            </main>
         )
     }
 });

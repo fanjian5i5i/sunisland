@@ -2,6 +2,7 @@ Generalinfo = React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData(){
         let data = {};
+        
         data.currentUser = {};
         var handle = Meteor.subscribe("modules");
         if(handle.ready()){
@@ -16,6 +17,10 @@ Generalinfo = React.createClass({
             email:this.data && this.data.currentUser && this.data.currentUser.emails ? this.data.currentUser.emails[0].address:'you@yourdomain.com'
         }
     },
+    componentDidMount: function() {
+        $('select').material_select();
+        Materialize.updateTextFields();
+      },
     saveAndContinue(e){
       e.preventDefault();
       var data = {
@@ -38,75 +43,76 @@ Generalinfo = React.createClass({
     },
     render(){
         // console.log(this.state);
+        $('select').material_select();
         return (
-                    <div className="panel panel-default">
-                      <div className="panel-heading">
-                        <h3 className="panel-title">General Information</h3>
-                      </div>
-                      <div className="panel-body">
-                        <div className="form-group">
-                          <label htmlFor="moduleName">Module Name:</label>
-                          <input type="text" className="form-control" id="usr" ref="moduleName" defaultValue={this.props.fieldValues.moduleName}/>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="poo">Place of Origin:</label>
-                          <select className="form-control" id="poo" ref="poo" defaultValue={this.props.fieldValues.poo}>
-                            <option>China</option>
-                            <option>Europe</option>
-                            <option>USA</option>
-                          </select>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="technology">Technology:</label>
-                          <select className="form-control" id="technology" ref="technology" defaultValue={this.props.fieldValues.technology}>
-                            <option>Monocrystalline</option>
-                            <option>Multicrystalline</option>
-                          </select>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="type">Type:</label>
-                          <select className="form-control" id="type" ref="type" defaultValue={this.props.fieldValues.type}>
-                            <option>N</option>
-                            <option>P</option>
-                          </select>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="dualglass">Dual glass:</label>
-                          <select className="form-control" id="dualglass" ref="dualglass" defaultValue={this.props.fieldValues.dualglass}> 
-                            <option>Yes</option>
-                            <option>No</option>
-                          </select>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="antipid">Anti-PID:</label>
-                          <select className="form-control" id="antipid" ref="antipid" defaultValue={this.props.fieldValues.antipid}>
-                            <option>Yes</option>
-                            <option>No</option>
-                          </select>
-                        </div>  
-                        <div className="form-group">
-                            <label htmlFor="snowload">Snow Load:</label>
-                            <div className="input-group">
-                                <input id="snowload" type="number" className="form-control" aria-describedby="basic-addon1" ref="snowload" defaultValue={this.props.fieldValues.snowload}/>
-                                <span className="input-group-addon" id="basic-addon1">Pa</span>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="windload">Wind Load:</label>
-                            <div className="input-group">
-                                <input id="windload" type="number" className="form-control" aria-describedby="basic-addon2" ref="windload" defaultValue={this.props.fieldValues.windload}/>
-                                <span className="input-group-addon" id="basic-addon2">Pa</span>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="keyfeature">Key Features:</label>
-                          <textarea className="form-control" rows="5" id="keyfeature" ref="keyfeature" defaultValue={this.props.fieldValues.keyfeature}></textarea>
-                        </div>  
-                        <div className="form-group">
-                          <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save And Continue</button>
-                        </div> 
-                      </div>
-                    </div>
+          <div className="input-tab">
+              <form className="col s12">
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input id="first_name" type="text" className="validate" ref="moduleName" defaultValue={this.props.fieldValues.moduleName}/>
+                    <label htmlFor="first_name">Module Name:</label>
+                  </div>
+                  <div className="input-field col s12">
+                      <select ref="poo" defaultValue={this.props.fieldValues.poo}>
+                        
+                        <option value="China">China</option>
+                        <option value="Europe">Europe</option>
+                        <option value="USA">USA</option>
+                      </select>
+                      <label>Place of Origin:</label>
+                  </div>
+                  <div className="input-field col s12">
+                      <select ref="technology" defaultValue={this.props.fieldValues.technology}>
+                        
+                        <option value="Monocrystalline">Monocrystalline</option>
+                        <option value="Multicrystalline">Multicrystalline</option>
+
+                      </select>
+                      <label>Technology:</label>
+                  </div>
+                  <div className="input-field col s12">
+                      <select ref="type" defaultValue={this.props.fieldValues.type}> 
+                        
+                        <option value="N">N</option>
+                        <option value="P">P</option>
+
+                      </select>
+                      <label>Type:</label>
+                  </div>
+                  <div className="input-field col s12">
+                      <select ref="dualglass" defaultValue={this.props.fieldValues.dualglass}>
+                        
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                      <label>Dual Glass:</label>
+                  </div>
+                  <div className="input-field col s12">
+                      <select ref="antipid" defaultValue={this.props.fieldValues.antipid}>
+                        
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                      <label>Anti-PID:</label>
+                  </div>
+                  <div className="input-field col s12">
+                      <input type="number" className="validate" ref="snowload" defaultValue={this.props.fieldValues.snowload}/>
+                      <label htmlFor="first_name">Snow Load:</label>
+                  </div>
+                  <div className="input-field col s12">
+                      <input type="number" className="validate" ref="windload" defaultValue={this.props.fieldValues.windload}/>
+                      <label htmlFor="first_name">Wind Load:</label>
+                  </div>
+                  <div className="input-field col s12">
+                            <textarea id="textarea1" className="materialize-textarea" ref="keyfeature" defaultValue={this.props.fieldValues.keyfeature}></textarea>
+                            <label htmlFor="textarea1">Key Features:</label>
+                  </div>
+                  <div className="form-group">
+                    <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save And Continue</button>
+                  </div>
+                </div>
+              </form>
+            </div>
 
         )
     }
