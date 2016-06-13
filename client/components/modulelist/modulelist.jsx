@@ -41,7 +41,7 @@ Modulelist = React.createClass({
         console.log(this.state);
 
        });
-     window.location.href = '/newmodule/'+module._id;
+     window.location.href = '/editmodule/'+module._id;
     },
     handleChange(moduleName,e){
       var that = this;

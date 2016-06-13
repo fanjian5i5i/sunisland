@@ -40,7 +40,7 @@ Meteor.startup(function () {
         },
         'Modules.findOne': function(id){
             var module_edit=Modules.findOne(id);
-            console.log(module_edit);
+            return module_edit;
         },
         'Posts.insert': function (message, imageurl) {
             var post = {

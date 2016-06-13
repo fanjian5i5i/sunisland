@@ -21,19 +21,38 @@ Generalinfo = React.createClass({
         $('select').material_select();
         Materialize.updateTextFields();
       },
+    componentWillReceiveProps: function(){
+      console.log(this.props.fieldValues);
+      var that = this;
+      Meteor.call('Modules.findOne',this.props.moduleId,function(err,result){
+          if(err){
+              Materialize.toast('Cannot find module ' + that.props.moduleId, 4000);
+          }else{
+              // that.props.saveValues(result);
+              that.refs.moduleName.value=result.moduleName;
+              that.refs.poo.value = result.poo;
+              that.refs.technology.value = result.technology;
+              that.refs.type.value = result.type;
+              that.refs.dualglass.value = result.dualglass;
+              that.refs.antipid.value = result.antipid;
+              that.refs.snowload.value = result.snowload;
+              that.refs.windload.value = result.windload;
+              that.refs.keyfeature.value = result.keyfeature;
+              Materialize.updateTextFields();
+          }
+      });
+    },
     saveAndContinue(e){
       e.preventDefault();
       var data = {
        moduleName : this.refs.moduleName.value,
        poo : this.refs.poo.value,
        technology : this.refs.technology.value,
-       moduleName : this.refs.moduleName.value,
        type : this.refs.type.value,
        dualglass : this.refs.dualglass.value,
        antipid : this.refs.antipid.value,
        snowload : this.refs.snowload.value,
        windload : this.refs.windload.value,
-       moduleName : this.refs.moduleName.value,
        keyfeature : this.refs.keyfeature.value,
 
        }

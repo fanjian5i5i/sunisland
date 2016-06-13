@@ -36,7 +36,7 @@ privateRoutes.route('/newmodule', {
         })
     }
 });
-privateRoutes.route('/newmodule/:moduleId', {
+privateRoutes.route('/editmodule/:moduleId', {
     name: 'AddNewModule.html',
     action: function (params) {
         ReactLayout.render(Layout, {
