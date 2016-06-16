@@ -142,7 +142,7 @@ Inputtab = React.createClass({
                     )
              case 4:return (
                         <div className="main-right">
-                            <InputHeader propsTitle={"Warranty and Certificate"}/>
+                            <InputHeader propsTitle={"Warranty and Pricing"}/>
                             <div className="container">
                                 <Warrantyinfo fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues} saveToCollection={this.saveToCollection}/>
                                 

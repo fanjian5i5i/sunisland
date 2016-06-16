@@ -23,23 +23,6 @@ Mechanicalinfo = React.createClass({
     componentDidMount: function() {
         $('select').material_select();
         Materialize.updateTextFields();
-      },
-    handleSubmit(e){
-        e.preventDefault();
-
-        var data = {
-           cellOrientation : this.refs.cellOrientation.value,
-           solarCell : this.refs.solarCell.value,
-           weight : this.refs.weight.value,
-           busbarsSolarCell : this.refs.busbarsSolarCell.value,
-           frontGlassThickness : this.refs.frontGlassThickness.value,
-           frameColor : this.refs.frameColor.value,
-           junctionBox : this.refs.junctionBox.value,
-           cables : this.refs.connector.value,
-           connector : this.refs.cables.value
-       }
-      this.props.saveValues(data);
-      this.props.saveToCollection();
     },
     saveAndContinue(e){
       e.preventDefault();
@@ -119,8 +102,7 @@ Mechanicalinfo = React.createClass({
 
                   <div className="form-group">
                     <button type="button" className="btn btn-info pull-left" onClick={this.props.previousStep}>Back</button>
-                    <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Next</button>
-                    <button type="button" className="btn btn-success pull-right" onClick={this.handleSubmit}>Sumbit</button>
+                    <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save and Continue</button>
                   </div> 
                 </div>
               </form>

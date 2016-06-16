@@ -28,35 +28,17 @@ Warrantyinfo = React.createClass({
         e.preventDefault();
 
         var data = {
-           cellOrientation : this.refs.cellOrientation.value,
-           solarCell : this.refs.solarCell.value,
-           weight : this.refs.weight.value,
-           busbarsSolarCell : this.refs.busbarsSolarCell.value,
-           frontGlassThickness : this.refs.frontGlassThickness.value,
-           frameColor : this.refs.frameColor.value,
-           junctionBox : this.refs.junctionBox.value,
-           cables : this.refs.connector.value,
-           connector : this.refs.cables.value
+           productwarranty : this.refs.productwarranty.value,
+           powerwarranty : this.refs.powerwarranty.value,
+           certificate : this.refs.certificate.value,
+           price10 : this.refs.price10.value,
+           price100 : this.refs.price100.value,
+           price1000 : this.refs.price1000.value,
+
+
        }
       this.props.saveValues(data);
       this.props.saveToCollection();
-    },
-    saveAndContinue(e){
-      e.preventDefault();
-      var data = {
-           cellOrientation : this.refs.cellOrientation.value,
-           solarCell : this.refs.solarCell.value,
-           weight : this.refs.weight.value,
-           busbarsSolarCell : this.refs.busbarsSolarCell.value,
-           frontGlassThickness : this.refs.frontGlassThickness.value,
-           frameColor : this.refs.frameColor.value,
-           junctionBox : this.refs.junctionBox.value,
-           cables : this.refs.connector.value,
-           connector : this.refs.cables.value
-       }
-      this.props.saveValues(data);
-      this.props.nextStep();
-        // FlowRouter.go('/newmodule/electricalinfo');
     },
     render(){
         // console.log(this.state);
@@ -131,7 +113,7 @@ Warrantyinfo = React.createClass({
                   </div>
                   <div className="form-group">
                     <button type="button" className="btn btn-info pull-left" onClick={this.props.previousStep}>Back</button>
-                    <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Next</button>
+                    <button type="button" className="btn btn-success pull-right" onClick={this.handleSubmit}>Sumbit</button>
                   </div> 
                 </div>
               </form>
