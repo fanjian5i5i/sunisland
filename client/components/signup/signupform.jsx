@@ -18,19 +18,26 @@ Signupform = React.createClass({
         e.preventDefault();
         this.setState({message: '', messageClass: 'hidden'});
         var that = this;
-        var first_name = ReactDOM.findDOMNode(this.refs.first_name).value.trim();
-        var last_name = ReactDOM.findDOMNode(this.refs.last_name).value.trim();
-        var email = ReactDOM.findDOMNode(this.refs.email).value.trim();
-        var password = ReactDOM.findDOMNode(this.refs.password).value.trim();
+        var username = this.refs.username.value;
+        var password = this.refs.password.value;
+        var accountmanager = this.refs.accountmanager.value;
+        var workphone = this.refs.workphone.value;
+        var email = this.refs.email.value;
+
+        // var email = ReactDOM.findDOMNode(this.refs.email).value.trim();
+        // var password = ReactDOM.findDOMNode(this.refs.password).value.trim();
         var user = {
-            email: email,
+            username:username,
             password: password,
             profile: {
-                fullname: (first_name + last_name).toLowerCase(),
-                firstname: first_name,
-                lastname: last_name,
+                email: email,
+                workphone:workphone,
+                accountmanager:accountmanager,
+                // fullname: (first_name + last_name).toLowerCase(),
+                // firstname: first_name,
+                // lastname: last_name,
                 avatar: 'http://placehold.it/150x150',
-                friends: []
+                // friends: []
             }
         };
         Accounts.createUser(user, function (e) {

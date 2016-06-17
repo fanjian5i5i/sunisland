@@ -30,9 +30,9 @@ Navbar = React.createClass({
         $('.dropdown-button').dropdown();
     },
     render(){
-        var fullname = '';
+        var username = '';
         if(this.data.currentUser && this.data.currentUser.profile){
-            fullname = this.data.currentUser.profile.firstname + ' ' + this.data.currentUser.profile.lastname;
+            username = this.data.currentUser.username;
         }
         return (
             <div className="navbar-fixed">
@@ -41,7 +41,7 @@ Navbar = React.createClass({
                   <a href="#" className="brand-logo">SUN ISLAND Account Manager</a>
                   <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><a href="/dashboard"><i className="material-icons left">dashboard</i>Dashboard</a></li>
-                    <li><a className="dropdown-button" data-activates="dropdown1" onClick={this.onClick}> {fullname}<i className="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a className="dropdown-button" data-activates="dropdown1" onClick={this.onClick}> {username}<i className="material-icons right">arrow_drop_down</i></a></li>
                   </ul>
                 </div>
               </nav>

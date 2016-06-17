@@ -64,3 +64,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
     text-align: center;
     font-weight: bolder;
 }
+.signin-text{
+    text-align: center;
+    /*font-weight: bolder;*/
+}

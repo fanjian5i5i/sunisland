@@ -1,4 +1,4 @@
-Homelayout = React.createClass({
+SigninLayout = React.createClass({
     
     render(){
         var logoStyle={
@@ -15,20 +15,13 @@ Homelayout = React.createClass({
                 </div>
                 <div className="container">
                     <div className="row white-text">
-                        <div className="signup-text col s6 offset-s3">Sign Up</div>
+                        <div className="signup-text col s6 offset-s3">Sign In</div>
                     </div>
                 </div>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-5 col-md-offset-1">
-                            <Signupform/>
-                        </div>
-                    </div>
-                </div>
-                <div className="container">
-                    <div className="row white-text">
-                        <div className="signin-text col s6 offset-s3">
-                            <a href="/signin">Sign In</a> if you already have an account.
+                            <Signinform/>
                         </div>
                     </div>
                 </div>
