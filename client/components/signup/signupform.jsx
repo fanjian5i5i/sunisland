@@ -46,39 +46,51 @@ Signupform = React.createClass({
     },
     render(){
         return (
+
             <div className="row">
-                <div className="signup">
-                    <h1>Sign Up</h1>
-                    <p className="text-muted">It's free and always will be.</p>
-                </div>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="col-sm-9">
-                        <div className="row">
-                            <div className="col-sm-6 form-group">
-                                <input ref="first_name" type="text" placeholder="First name"
-                                       className="form-control"/>
+                <div className="col s6 offset-s3">
+                  <div className="card orange-text text-darken-2 z-depth-3">
+                    <div className="card-content">
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="col-sm-9">
+
+                                <div className="form-group">
+                                    <input ref="username" type="text" placeholder="Username"
+                                           className="form-control"/>
+                                </div>
+                                <div className="form-group">
+                                    <input type="password" placeholder="New password" ref="password"
+                                           className="form-control"/>
+                                </div>
+                                <div className="form-group">
+                                    <input type="text" placeholder="Account Manager" ref="accountmanager"
+                                           className="form-control"/>
+                                </div>
+                                <div className="form-group">
+                                    <input type="tel" placeholder="Work Phone" ref="workphone"
+                                           className="form-control"/>
+                                </div>
+                                <div className="form-group">
+                                    <input type="text" placeholder="Email or mobile number" ref="email"
+                                           className="form-control"/>
+                                </div>
+                                <div className="col s10 offset-s1">
+                                    <p className="privacy">By clicking on Sign Up, you agree to <a href="#">terms & conditions</a> and <a href= "#">privacy policy</a>.</p>
+                                </div>
+                                
+                                <div className="form-group col-sm-12">
+                                    <button type="submit" className="btn btn-md orange darken-4 btn-100">Sign Up</button>
+                                </div>
+                                
+                                
+                                <span className={this.state.messageClass}>{this.state.message}</span>
+
                             </div>
-                            <div className="col-sm-6 form-group">
-                                <input ref="last_name" type="text" placeholder="Last name"
-                                       className="form-control"/>
-                            </div>
-                        </div>
-
-
-                        <div className="form-group">
-                            <input type="text" placeholder="Email or mobile number" ref="email"
-                                   className="form-control"/>
-                        </div>
-                        <div className="form-group">
-                            <input type="password" placeholder="New password" ref="password"
-                                   className="form-control"/>
-                        </div>
-                        <button type="submit" className="btn btn-md btn-success">Sign Up</button>
-                        <span className={this.state.messageClass}>{this.state.message}</span>
-
+                        </form>
                     </div>
-                </form>
-            </div>
+                  </div>
+                </div>
+              </div>
         )
     }
 });

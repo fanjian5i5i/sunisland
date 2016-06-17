@@ -63,7 +63,7 @@ Modulelist = React.createClass({
                 <td>{module.technology}</td>
                 <td>{module.power}</td>
                 <td>{module.efficiency}</td>
-                <td>{module.price10}</td>
+                <td>${module.price10}</td>
               </tr>);
         }.bind(this));
         return (
