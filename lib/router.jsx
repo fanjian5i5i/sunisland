@@ -38,7 +38,7 @@ privateRoutes.route('/newmodule', {
 
         ReactLayout.render(Layout, {
             sidebar: <Sidebar/>,
-            content: <Inputtab/>
+            content: <Inputtab moduleId="newmodule"/>
         })
     }
 });

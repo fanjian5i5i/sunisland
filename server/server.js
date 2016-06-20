@@ -38,6 +38,10 @@ Meteor.startup(function () {
                   $set: params,
                 });
         },
+        'Modules.delete': function(params){
+            // console.log(params.moduleName);
+            Modules.remove(params._id);
+        },
         'Modules.findOne': function(id){
             var module_edit=Modules.findOne(id);
             return module_edit;

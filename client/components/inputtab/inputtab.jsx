@@ -30,16 +30,18 @@ Inputtab = React.createClass({
 
         console.log(this.props.moduleId);
         var that = this;
-
-        Meteor.call('Modules.findOne',this.props.moduleId,function(err,result){
-            if(err){
-                Materialize.toast('Cannot find module ' + that.props.moduleId, 4000);
-            }else{
-                that.saveValues(result);
-                console.log(fieldValues);
-                Materialize.updateTextFields();
-            }
-        });
+        if(this.props.moduleId != 'newmodule'){
+            Meteor.call('Modules.findOne',this.props.moduleId,function(err,result){
+                if(err){
+                    Materialize.toast('Cannot find module ' + that.props.moduleId, 4000);
+                }else{
+                    that.saveValues(result);
+                    console.log(fieldValues);
+                    Materialize.updateTextFields();
+                }
+            });
+        }
+        
 
         return data;
     },

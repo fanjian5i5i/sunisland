@@ -5,7 +5,7 @@ Modulelist = React.createClass({
         data.modules = [];
         var modulehandle = Meteor.subscribe('modules');
         if(modulehandle.ready()){
-            data.modules = Modules.find({},{}).fetch();
+            data.modules = Modules.find({"user._id":Meteor.user()._id}).fetch();
         }
 
         return data;
@@ -53,6 +53,17 @@ Modulelist = React.createClass({
     changeModule(e){
       e.preventDefault();
     },
+    deleteModule(module, e){
+      e.stopPropagation();
+      console.log(module);
+      Meteor.call('Modules.delete',module,function(err){
+              if(err){
+                  console.log(err);
+              }else{
+                  toastr.success("Module Deleted");
+              }
+          });
+    },
     render(){
       var that = this;
         var modules = this.data.modules.map(function (module) {
@@ -64,6 +75,7 @@ Modulelist = React.createClass({
                 <td>{module.power}</td>
                 <td>{module.efficiency}</td>
                 <td>${module.price10}</td>
+                <td onClick={that.deleteModule.bind(this, module)}><a className="btn-floating btn-small waves-effect waves-light red" ><i className="material-icons">delete</i></a></td>
               </tr>);
         }.bind(this));
         return (
@@ -79,6 +91,7 @@ Modulelist = React.createClass({
                             <th>Power</th>
                             <th>Efficiency</th>
                             <th>Price</th>
+                            <th></th>
                           </tr>
                         </thead>
                         <tbody>

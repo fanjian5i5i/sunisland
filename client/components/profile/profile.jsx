@@ -2,11 +2,13 @@ Profile = React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData(){
         let data = {};
-        data.currentUser = {};
+        // data.currentUser = {};
         var handle = Meteor.subscribe("userlist");
         if(handle.ready()){
             data.currentUser = Meteor.user();
+            // this.setState({currentUser:data.currentUser});
         }
+
         return data;
     },
     getInitialState(){
@@ -14,16 +16,12 @@ Profile = React.createClass({
         return {
             klass:'circle responsive-img',
             editmode:false,
-            email:this.data && this.data.currentUser && this.data.currentUser.profile.email ? this.data.currentUser.profile.email:'you@yourdomain.com'
+            email:this.data && this.data.currentUser && this.data.currentUser.profile.email ? this.data.currentUser.profile.email:'you@yourdomain.com',
+            currentUser:{}
         }
     },
-    toggleEdit(){
-       this.setState({editmode:!this.state.editmode,email:this.data.currentUser ? Meteor.user().emails[0].address:''});
-    },
     componentDidMount(){
-        console.log(this.data.currentUser);
-        this.setState({email:this.data.currentUser ? Meteor.user().profile.email:''});
-        Materialize.updateTextFields();
+       setTimeout(function(){ Materialize.updateTextFields(); }, 500);
     },
     changeEmail(e){
         e.preventDefault();
@@ -50,10 +48,49 @@ Profile = React.createClass({
 
 
     },
+    rendering(){
+        return(
+            <div className="progress">
+                  <div className="indeterminate"></div>
+              </div>
+        )
+    },
+    getContent(){
+        // this.setState({"currentUser":this.data.currentUser});
+        return(
+            <div className="row">
+                <div className="input-field col s12">
+                  <label htmlFor="email">Email:</label>
+                  <input id="email" type="email" ref="email" defaultValue={this.data.currentUser.profile.email}/>
+                </div>
+                <div className="input-field col s12">
+                  <label htmlFor="email">Work Phone Number:</label>
+                  <input id="email" type="number" ref="workphone" defaultValue={this.data.currentUser.profile.workphone}/>
+                </div>
+                <div className="input-field col s12">
+                  <label htmlFor="email">Account Manager:</label>
+                  <input id="email" type="text" ref="accountmanager" defaultValue={this.data.currentUser.profile.accountmanager}/>
+                </div>
+                <div className="input-field col s12">
+                  <label htmlFor="email">Company Name:</label>
+                  <input id="email" type="text" ref="company" defaultValue={this.data.currentUser.profile.company}/>
+                </div>
+                <div className="input-field col s12">
+                  <label htmlFor="email">Headquarter Location:</label>
+                  <input id="email" type="text" ref="headquarter" defaultValue={this.data.currentUser.profile.headquarter}/>
+                </div>
+                <div className="input-field col s12">
+                  <label htmlFor="email">Manufacturing Location:</label>
+                  <input id="email" type="text" ref="manufacturinglocation" defaultValue={this.data.currentUser.profile.manufacturinglocation}/>
+                </div>
+                <div className="input-field col s12">
+                  <label htmlFor="email">Company Module Capacity(MW):</label>
+                  <input id="email" type="text" ref="companymodulecapacity" defaultValue={this.data.currentUser.profile.companymodulecapacity}/>
+                </div>
+            </div>
+        )
+    },
     render(){
-        var editmode = <input onBlur={this.changeEmail} ref="email" defaultValue={this.state.email} type="text"/>;
-        var emaillink = this.data.currentUser && this.data.currentUser.emails ? 'mailto:' + this.data.currentUser.emails[0].address:'';
-        var mailblock = !this.state.editmode ? <a href={emaillink}>{this.state.email}</a>:editmode;
         return (
                 <div className="row">
                     <div className="main-right">
@@ -74,11 +111,12 @@ Profile = React.createClass({
                                   <input className="file-path validate" type="text" />
                                 </div>
                               </div>
+
+
+                              {this.data.currentUser? this.getContent(): <p>Loading...</p>}
+
                             </div>
-                            <div className="input-field col s12">
-                              <label htmlFor="email">Email:</label>
-                              <input id="email" type="email" ref="email" defaultValue={this.state.email}/>
-                            </div>
+                            
                           </form>
                         </div>
                     </div>

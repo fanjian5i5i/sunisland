@@ -20,9 +20,14 @@ Signupform = React.createClass({
         var that = this;
         var username = this.refs.username.value;
         var password = this.refs.password.value;
+        var email = this.refs.email.value;
         var accountmanager = this.refs.accountmanager.value;
         var workphone = this.refs.workphone.value;
-        var email = this.refs.email.value;
+        var company = this.refs.company.value;
+        var headquarter = this.refs.headquarter.value;
+        var manufacturinglocation = this.refs.manufacturinglocation.value;
+        var companymodulecapacity = this.refs.companymodulecapacity.value;
+
 
         // var email = ReactDOM.findDOMNode(this.refs.email).value.trim();
         // var password = ReactDOM.findDOMNode(this.refs.password).value.trim();
@@ -33,9 +38,10 @@ Signupform = React.createClass({
                 email: email,
                 workphone:workphone,
                 accountmanager:accountmanager,
-                // fullname: (first_name + last_name).toLowerCase(),
-                // firstname: first_name,
-                // lastname: last_name,
+                company:company,
+                headquarter:headquarter,
+                manufacturinglocation:manufacturinglocation,
+                companymodulecapacity:companymodulecapacity,
                 avatar: 'http://placehold.it/150x150',
                 // friends: []
             }
@@ -79,6 +85,22 @@ Signupform = React.createClass({
                                 </div>
                                 <div className="form-group">
                                     <input type="text" placeholder="Email or mobile number" ref="email"
+                                           className="form-control"/>
+                                </div>
+                                <div className="form-group">
+                                    <input type="text" placeholder="Company Name" ref="company"
+                                           className="form-control"/>
+                                </div>
+                                <div className="form-group">
+                                    <input type="text" placeholder="Headquarter Location" ref="headquarter"
+                                           className="form-control"/>
+                                </div>
+                                <div className="form-group">
+                                    <input type="text" placeholder="Manufacturing Location" ref="manufacturinglocation"
+                                           className="form-control"/>
+                                </div>
+                                <div className="form-group">
+                                    <input type="number" placeholder="Company Module Capacity(MW)" ref="companymodulecapacity"
                                            className="form-control"/>
                                 </div>
                                 <div className="col s10 offset-s1">
