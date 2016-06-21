@@ -33,7 +33,7 @@ Meteor.startup(function () {
             Modules.insert(module);
         },
         'Modules.update': function(params){
-            console.log(params.moduleName);
+            console.log(params);
             Modules.update(params._id, {
                   $set: params,
                 });

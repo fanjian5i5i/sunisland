@@ -79,11 +79,13 @@ Inputtab = React.createClass({
      fieldValues = Object.assign({}, fieldValues, fields)
      }()
     },
-    saveToCollection(){
-        Meteor.call('Modules.insert',fieldValues,function(err){
+    updateToCollection(){
+        Meteor.call('Modules.update',fieldValues,function(err){
             if(err){
                 console.log(err);
             }
+            console.log(fieldValues);
+
         });
     },
     nextStep() {
@@ -146,7 +148,7 @@ Inputtab = React.createClass({
                         <div className="main-right">
                             <InputHeader propsTitle={"Warranty and Pricing"}/>
                             <div className="container">
-                                <Warrantyinfo fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues} saveToCollection={this.saveToCollection}/>
+                                <Warrantyinfo fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues} updateToCollection={this.updateToCollection}/>
                                 
                             </div>
                         </div>

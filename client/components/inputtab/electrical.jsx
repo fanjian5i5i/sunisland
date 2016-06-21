@@ -30,9 +30,6 @@ Electricalinfo = React.createClass({
       this.props.nextStep();
         // FlowRouter.go('/newmodule/electricalinfo');
     },
-    goBack(){
-        FlowRouter.go('/newmodule/');
-    },
     render(){
         // console.log(this.state);
         return (

@@ -38,7 +38,8 @@ Warrantyinfo = React.createClass({
 
        }
       this.props.saveValues(data);
-      this.props.saveToCollection();
+      this.props.updateToCollection();
+      
     },
     render(){
         // console.log(this.state);

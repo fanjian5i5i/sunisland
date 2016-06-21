@@ -14,7 +14,8 @@ Modulelist = React.createClass({
         return {
             limit:3,
             currentModule:{test:"test"},
-            controlledModalOpen : false
+            controlledModalOpen : false,
+
         }
     },
     openModal () {
@@ -53,16 +54,22 @@ Modulelist = React.createClass({
     changeModule(e){
       e.preventDefault();
     },
-    deleteModule(module, e){
+    deleteModule(e){
       e.stopPropagation();
-      console.log(module);
-      Meteor.call('Modules.delete',module,function(err){
+      // console.log(module);
+      Meteor.call('Modules.delete',this.state.currentModule,function(err){
               if(err){
                   console.log(err);
               }else{
                   toastr.success("Module Deleted");
               }
           });
+    },
+    handleClick(module, e){
+      e.stopPropagation();
+      // console.log(moduleId);
+      this.setState({currentModule:module});
+      $('#myModal').openModal();
     },
     render(){
       var that = this;
@@ -75,7 +82,7 @@ Modulelist = React.createClass({
                 <td>{module.power}</td>
                 <td>{module.efficiency}</td>
                 <td>${module.price10}</td>
-                <td><ConfirmModal currentModule={module}/></td>
+                <td><a className="btn-floating btn-small waves-effect waves-light red" onClick={that.handleClick.bind(this, module)}><i className="material-icons">delete</i></a></td>
               </tr>);
         }.bind(this));
         return (
@@ -99,12 +106,19 @@ Modulelist = React.createClass({
                         </tbody>
                       </table>
                    </div>     
-                    <ConfirmModal currentModule={"test"}/>
                    <div className="form-group">
                       <a className="btn-floating btn-large waves-effect waves-light red pull-right" href="/newmodule"><i className="material-icons">add</i></a>
                    </div>
                 </div>
-                   
+                <div id="myModal" className="modal">
+                  <div className="modal-content">
+                    <p>Are you sure you want to delete this module? </p>
+                  </div>
+                  <div className="modal-footer">
+                    <a className="modal-action modal-close waves-effect waves-green btn-flat green-text" onClick={this.deleteModule}>Yes</a>
+                    <a className="modal-action modal-close waves-effect waves-green btn-flat red-text">Cancel</a>
+                  </div>
+                </div>   
             </main>
         )
     }

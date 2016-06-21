@@ -75,6 +75,7 @@ Generalinfo = React.createClass({
        keyfeature : this.refs.keyfeature.value,
 
        }
+      console.log(this.refs.moduleName.value);
       this.props.saveValues(data);
       this.props.nextStep();
         // FlowRouter.go('/newmodule/electricalinfo');
