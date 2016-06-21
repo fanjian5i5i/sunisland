@@ -75,7 +75,7 @@ Modulelist = React.createClass({
                 <td>{module.power}</td>
                 <td>{module.efficiency}</td>
                 <td>${module.price10}</td>
-                <td onClick={that.deleteModule.bind(this, module)}><a className="btn-floating btn-small waves-effect waves-light red" ><i className="material-icons">delete</i></a></td>
+                <td><ConfirmModal currentModule={module}/></td>
               </tr>);
         }.bind(this));
         return (
@@ -99,7 +99,7 @@ Modulelist = React.createClass({
                         </tbody>
                       </table>
                    </div>     
-                   
+                    <ConfirmModal currentModule={"test"}/>
                    <div className="form-group">
                       <a className="btn-floating btn-large waves-effect waves-light red pull-right" href="/newmodule"><i className="material-icons">add</i></a>
                    </div>
