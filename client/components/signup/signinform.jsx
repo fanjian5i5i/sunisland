@@ -35,26 +35,22 @@ Signinform = React.createClass({
         return (
 
             <div className="row">
-                <div className="col s6 offset-s3">
+                <div className="col s12 m8 offset-m2 l6 offset-l3">
                   <div className="card orange-text text-darken-2 z-depth-3">
                     <div className="card-content">
                         <form onSubmit={this.handleSubmit}>
-                            <div className="col-sm-9">
-
                                 <div className="form-group">
                                     <input ref="username" type="text" placeholder="Username"
                                            className="form-control"/>
                                 </div>
                                 <div className="form-group">
-                                    <input type="password" placeholder="New password" ref="password"
+                                    <input type="password" placeholder="Password" ref="password"
                                            className="form-control"/>
                                 </div>
                                 
                                 <div className="form-group col-sm-12">
                                     <button type="submit" className="btn btn-md orange darken-4 btn-100">Sign In</button>
                                 </div>
-
-                            </div>
                         </form>
                     </div>
                   </div>

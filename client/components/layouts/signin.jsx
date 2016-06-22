@@ -25,6 +25,13 @@ SigninLayout = React.createClass({
                         </div>
                     </div>
                 </div>
+                <div className="container">
+                    <div className="row white-text">
+                        <div className="signin-text col s6 offset-s3">
+                            <a href="/">Sign Up</a> if you don't have an account.
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
