@@ -14,7 +14,7 @@ Generalinfo = React.createClass({
         return {
             klass:'img-circle img-responsive custom-input-file',
             editmode:false,
-            email:this.data && this.data.currentUser && this.data.currentUser.emails ? this.data.currentUser.emails[0].address:'you@yourdomain.com'
+            email:this.data && this.data.currentUser && this.data.currentUser.emails ? this.data.currentUser.emails[0].address:'you@yourdomain.com',
         }
     },
     componentDidMount: function() {
@@ -24,41 +24,28 @@ Generalinfo = React.createClass({
     componentWillReceiveProps: function(){
       console.log(this.props.moduleId);
       var that = this;
-      if(!this.props.moduleId || this.props.moduleId === "newmodule"){
-        var data = {
-         moduleName : "",
-         poo : "",
-         technology : "",
-         type : "",
-         dualglass : "",
-         antipid : "",
-         snowload : "",
-         windload : "",
-         keyfeature : ""
-         }
-        that.props.saveValues(data);
-
-
-      }else{
-
+      if(this.props.firstvisit){
         Meteor.call('Modules.findOne',this.props.moduleId,function(err,result){
-            if(err){
-                Materialize.toast('Cannot find module ' + that.props.moduleId, 4000);
-            }else{
-                // that.props.saveValues(result);
-                that.refs.moduleName.value=result.moduleName;
-                that.refs.poo.value = result.poo;
-                that.refs.technology.value = result.technology;
-                that.refs.type.value = result.type;
-                that.refs.dualglass.value = result.dualglass;
-                that.refs.antipid.value = result.antipid;
-                that.refs.snowload.value = result.snowload;
-                that.refs.windload.value = result.windload;
-                that.refs.keyfeature.value = result.keyfeature;
-                Materialize.updateTextFields();
-            }
+          if(err){
+              Materialize.toast('Cannot find module ' + that.props.moduleId, 4000);
+          }else{
+              // that.props.saveValues(result);
+              that.refs.moduleName.value=result.moduleName;
+              that.refs.poo.value = result.poo;
+              that.refs.technology.value = result.technology;
+              that.refs.type.value = result.type;
+              that.refs.dualglass.value = result.dualglass;
+              that.refs.antipid.value = result.antipid;
+              that.refs.snowload.value = result.snowload;
+              that.refs.windload.value = result.windload;
+              that.refs.keyfeature.value = result.keyfeature;
+              Materialize.updateTextFields();
+          }
         });
+      }else{
+        console.log("not first");
       }
+      
       
     },
     saveAndContinue(e){

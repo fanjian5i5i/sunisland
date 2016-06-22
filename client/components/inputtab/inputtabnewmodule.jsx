@@ -131,7 +131,7 @@ InputtabNewModule = React.createClass({
                         <div className="main-right">
                             <InputHeader propsTitle={"Warranty and Pricing"}/>
                             <div className="container">
-                                <Warrantyinfo fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues} saveToCollection={this.saveToCollection}/>
+                                <Warrantyinfonewmodule fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues} saveToCollection={this.saveToCollection}/>
                                 
                             </div>
                         </div>

@@ -91,6 +91,18 @@ Profile = React.createClass({
         )
     },
     render(){
+        // var comment = {"                              <div className="col s12">
+        //                           <Avatar user={this.data.currentUser ? this.data.currentUser._id:''} klass={this.state.klass}/>
+        //                       </div>  
+        //                       <div className="input-field col s12 file-field">
+        //                         <div className="btn">
+        //                           <span>Avatar</span>
+        //                           <input type="file" onChange={this.uploadFile}/>
+        //                         </div>
+        //                         <div className="file-path-wrapper">
+        //                           <input className="file-path validate" type="text" />
+        //                         </div>
+        //                       </div>"}
         return (
                 <div className="row">
                     <div className="main-right">
@@ -99,18 +111,7 @@ Profile = React.createClass({
                           <form className="col s12">
                             <div className="row">
 
-                              <div className="col s12">
-                                  <Avatar user={this.data.currentUser ? this.data.currentUser._id:''} klass={this.state.klass}/>
-                              </div>  
-                              <div className="input-field col s12 file-field">
-                                <div className="btn">
-                                  <span>Avatar</span>
-                                  <input type="file" onChange={this.uploadFile}/>
-                                </div>
-                                <div className="file-path-wrapper">
-                                  <input className="file-path validate" type="text" />
-                                </div>
-                              </div>
+
 
 
                               {this.data.currentUser? this.getContent(): <p>Loading...</p>}

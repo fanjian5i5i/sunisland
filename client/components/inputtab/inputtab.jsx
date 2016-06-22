@@ -30,13 +30,14 @@ Inputtab = React.createClass({
 
         console.log(this.props.moduleId);
         var that = this;
-        if(this.props.moduleId != 'newmodule'){
+        if(that.state.firstvisit){
             Meteor.call('Modules.findOne',this.props.moduleId,function(err,result){
                 if(err){
                     Materialize.toast('Cannot find module ' + that.props.moduleId, 4000);
                 }else{
                     that.saveValues(result);
                     console.log(fieldValues);
+                    // that.setState({firstvisit:false});
                     Materialize.updateTextFields();
                 }
             });
@@ -49,6 +50,7 @@ Inputtab = React.createClass({
     getInitialState(){
         return {
             step: 1,
+            firstvisit:true,
             klass:'img-circle img-responsive custom-input-file',
             editmode:false,
             email:this.data && this.data.currentUser && this.data.currentUser.emails ? this.data.currentUser.emails[0].address:'you@yourdomain.com'
@@ -72,6 +74,7 @@ Inputtab = React.createClass({
         
     // },
     saveValues(fields) {
+
      return function() {
      // Remember, `fieldValues` is set at the top of this file, we are simply appending
      // to and overriding keys in `fieldValues` with the `fields` with Object.assign
@@ -90,7 +93,8 @@ Inputtab = React.createClass({
     },
     nextStep() {
      this.setState({
-     step : this.state.step + 1
+     step : this.state.step + 1,
+     firstvisit:false
      })
     },
 
@@ -121,7 +125,7 @@ Inputtab = React.createClass({
                         <div className="main-right">
                             <InputHeader propsTitle={"General Information"}/>
                             <div className="container">
-                                <Generalinfo fieldValues={fieldValues} nextStep={this.nextStep} saveValues={this.saveValues} moduleId={this.props.moduleId}/>
+                                <Generalinfo fieldValues={fieldValues} nextStep={this.nextStep} saveValues={this.saveValues} moduleId={this.props.moduleId} firstvisit={this.state.firstvisit}/>
                                 
                             </div>
                         </div>

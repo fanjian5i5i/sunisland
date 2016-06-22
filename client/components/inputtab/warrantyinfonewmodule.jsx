@@ -1,4 +1,4 @@
-Warrantyinfo = React.createClass({
+Warrantyinfonewmodule = React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData(){
         let data = {};
@@ -43,7 +43,7 @@ Warrantyinfo = React.createClass({
 
        }
       this.props.saveValues(data);
-      this.props.updateToCollection();
+      this.props.saveToCollection();
       
     },
     render(){
@@ -125,7 +125,7 @@ Warrantyinfo = React.createClass({
               </form>
               <div id="myModalUpdate" className="modal">
                 <div className="modal-content">
-                  <p>Are you sure you want to make changes to this module? </p>
+                  <p>Create module {this.props.fieldValues.moduleName}? </p>
                 </div>
                 <div className="modal-footer">
                   <a className="modal-action modal-close waves-effect waves-green btn-flat green-text" onClick={this.handleSubmit}>Yes</a>
