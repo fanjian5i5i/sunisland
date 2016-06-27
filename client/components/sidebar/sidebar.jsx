@@ -6,6 +6,9 @@ Sidebar = React.createClass({
         // {_id:4,href:'/friends',icon:'fa fa-users fa-2x',text:'Invertors'},
         {_id:3,href:'/newmodule',icon:'note_add',text:'Add New'}
     ],
+    handleClick(){
+        $('.button-collapse').sideNav('hide');
+    },
     render(){
         var rows = this.links.map(function (link) {
             return (
@@ -16,7 +19,7 @@ Sidebar = React.createClass({
         });
         return (
             <div>
-                <ul id="slide-out" className="side-nav fixed side-nav-margin">
+                <ul id="slide-out" className="side-nav fixed side-nav-margin" onClick={this.handleClick}>
                       {rows}
                 </ul>
             </div>

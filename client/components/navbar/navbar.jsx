@@ -20,6 +20,7 @@ Navbar = React.createClass({
             name: 'users',
             local: usernames
         });
+        $(".button-collapse").sideNav();
     },
     handleSubmit(e){
         e.preventDefault();
@@ -38,8 +39,12 @@ Navbar = React.createClass({
             <div className="navbar-fixed">
                <nav>
                 <div className="nav-wrapper yellow darken-4">
-                  <a href="#" className="brand-logo">SUN ISLAND Account Manager</a>
-                  <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <ul className="left">
+                  <li><a href="#" data-activates="slide-out" className="button-collapse top-nav full hide-on-large-only"><i className="material-icons">menu</i></a></li>
+                </ul>
+                  
+                  <a href="#" className="brand-logo center">SUN ISLAND</a>
+                  <ul id="nav-mobile" className="right hide-on-small-and-down">
                     <li><a href="/dashboard"><i className="material-icons left">dashboard</i>Dashboard</a></li>
                     <li><a className="dropdown-button" data-activates="dropdown1" onClick={this.onClick}> {username}<i className="material-icons right">arrow_drop_down</i></a></li>
                   </ul>
