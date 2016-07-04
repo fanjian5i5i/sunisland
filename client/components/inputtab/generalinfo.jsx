@@ -72,6 +72,29 @@ Generalinfo = React.createClass({
         $('select').material_select();
         return (
           <div className="input-tab">
+              <div className="row">
+                <div className="col s12">
+                  <div className="card">
+                    <div className="card-image">
+                      <img src="http://placehold.it/150x150"/>
+                    </div>
+                    <div className="card-action">
+                    <span className="card-title activator grey-text text-darken-4">Module Image</span>
+                      <form action="#">
+                          <div className="file-field input-field">
+                            <div className="btn">
+                              <span>Upload</span>
+                              <input type="file"/>
+                            </div>
+                            <div className="file-path-wrapper">
+                              <input className="file-path validate" type="text"/>
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <form className="col s12">
                 <div className="row">
                   <div className="input-field col s12">

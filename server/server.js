@@ -78,6 +78,15 @@ Meteor.startup(function () {
 
             Meteor.users.update(this.userId, {$set: {'profile.avatar': data}});
         },
+        'changeModuleImg': function (moduleid, fileid) {
+            var file = 'http://placehold.it/150x150';
+            if (fileid) {
+                file = Images.findOne({_id: fileid});
+            }
+            var data = file._id;
+
+            Meteor.Modules.update(moduleid, {$set: {'image': data}});
+        },
         'sendMessage':function(person,subject,message){
             var to = Meteor.users.findOne({_id: person});
             var from = Meteor.users.findOne({_id: this.userId});

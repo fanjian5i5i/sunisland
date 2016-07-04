@@ -44,8 +44,8 @@ Navbar = React.createClass({
                 </ul>
                   
                   <a href="#" className="brand-logo center">SUN ISLAND</a>
-                  <ul id="nav-mobile" className="right hide-on-small-and-down">
-                    <li><a href="/dashboard"><i className="material-icons left">dashboard</i>Dashboard</a></li>
+                  <ul id="nav-mobile" className="right">
+                    <li className="hide-on-small-and-down"><a href="/dashboard"><i className="material-icons left">dashboard</i>Dashboard</a></li>
                     <li><a className="dropdown-button" data-activates="dropdown1" onClick={this.onClick}> {username}<i className="material-icons right">arrow_drop_down</i></a></li>
                   </ul>
                 </div>
