@@ -1,13 +1,26 @@
 .side-nav-margin{
-    margin-top: 64px;
+    margin-top: 56px;
     /*z-index: 0;*/
+}
+@media screen and (min-width: 600px) {
+  .side-nav-margin{
+      margin-top: 64px;
+      /*z-index: 0;*/
+  }
+}
+@media screen and (min-width: 992px) {
+  .side-nav-margin{
+      /*margin-top: 64px;*/
+      z-index: 0;
+  }
 }
 .icons-margin-top{
     margin-top: 4px;
-}@media screen and (min-width: 992px) {
-.main-right{
-    padding-left: 240px;
 }
+@media screen and (min-width: 992px) {
+  .main-right{
+      padding-left: 240px;
+  }
 }
 .secondNav{
     height: 122px;
@@ -21,7 +34,7 @@ nav.top-nav a.page-title{
     margin-top: 10px;
 }
 table > tbody > tr > td {
-    cursor:pointer;    
+    cursor:pointer;
 }
 table.highlight > tbody > tr:hover {
     background-color: #f9a825 !important;
