@@ -79,7 +79,8 @@ Generalinfo = React.createClass({
                       <img src="http://placehold.it/150x150"/>
                     </div>
                     <div className="card-action">
-                    <span className="card-title activator grey-text text-darken-4">Module Image</span>
+                    <span className
+                    ="card-title activator grey-text text-darken-4">Module Image</span>
                       <form action="#">
                           <div className="file-field input-field">
                             <div className="btn">
