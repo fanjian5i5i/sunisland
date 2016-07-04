@@ -33,28 +33,36 @@ Electricalinfo = React.createClass({
     render(){
         // console.log(this.state);
         return (
-                <div className="input-tab">
-                  <form className="col s12">
-                    <div className="row">
-                      <div className="input-field col s12">
-                        <label htmlFor="power">Power(Wp):</label>
-                        <input id="power" type="number" ref="power" defaultValue={this.props.fieldValues.power}/>
-                      </div>
-                      <div className="input-field col s12">
-                        <label htmlFor="powerTolerance">Power Tolerance(%):</label>
-                        <input id="powerTolerance" type="number" ref="powerTolerance" defaultValue={this.props.fieldValues.powerTolerance}/>
-                      </div>
-                      <div className="input-field col s12">
-                        <label htmlFor="power">Module Efficiency(%):</label>
-                        <input id="power" type="number" ref="efficiency" defaultValue={this.props.fieldValues.efficiency}/>
-                      </div>
-                      <div className="form-group">
-                        <button type="button" className="btn btn-info pull-left" onClick={this.props.previousStep}>Back</button>
-                        <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save And Continue</button>
-                      </div>
+          <div className="input-tab">
+              <div className="row">
+                <div className="col s12">
+                  <div className="card">
+                    <div className="card-content">
+                      <form>
+
+                          <div className="input-field col s12">
+                            <label htmlFor="power">Power(Wp):</label>
+                            <input id="power" type="number" ref="power" defaultValue={this.props.fieldValues.power}/>
+                          </div>
+                          <div className="input-field col s12">
+                            <label htmlFor="powerTolerance">Power Tolerance(%):</label>
+                            <input id="powerTolerance" type="number" ref="powerTolerance" defaultValue={this.props.fieldValues.powerTolerance}/>
+                          </div>
+                          <div className="input-field col s12">
+                            <label htmlFor="power">Module Efficiency(%):</label>
+                            <input id="power" type="number" ref="efficiency" defaultValue={this.props.fieldValues.efficiency}/>
+                          </div>
+                          <div className="form-group">
+                            <button type="button" className="btn btn-info pull-left" onClick={this.props.previousStep}>Back</button>
+                            <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save And Continue</button>
+                          </div>
+                        
+                      </form>
                     </div>
-                  </form>
+                  </div>
                 </div>
+              </div>
+            </div>
         )
     }
 });

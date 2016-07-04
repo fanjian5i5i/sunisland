@@ -2,7 +2,7 @@ Generalinfo = React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData(){
         let data = {};
-        
+
         data.currentUser = {};
         var handle = Meteor.subscribe("modules");
         if(handle.ready()){
@@ -45,8 +45,8 @@ Generalinfo = React.createClass({
       }else{
         console.log("not first");
       }
-      
-      
+
+
     },
     saveAndContinue(e){
       e.preventDefault();
@@ -78,11 +78,11 @@ Generalinfo = React.createClass({
                     <div className="card-image">
                       <img src="http://placehold.it/150x150"/>
                     </div>
-                    <div className="card-action">
-                    <span className
+                    <div className="card-content">
+                        <span className
                     ="card-title activator grey-text text-darken-4">Module Image</span>
-                      <form action="#">
-                          <div className="file-field input-field">
+                        <form>
+                          <div className="file-field input-field col s12">
                             <div className="btn">
                               <span>Upload</span>
                               <input type="file"/>
@@ -91,77 +91,75 @@ Generalinfo = React.createClass({
                               <input className="file-path validate" type="text"/>
                             </div>
                           </div>
+                          <div className="row">
+                            <div className="input-field col s12">
+                              <input id="first_name" type="text" className="validate" ref="moduleName" defaultValue={this.props.fieldValues.moduleName}/>
+                              <label htmlFor="first_name">Module Name:</label>
+                            </div>
+                            <div className="input-field col s12">
+                                <select ref="poo" defaultValue={this.props.fieldValues.poo}>
+
+                                  <option value="China">China</option>
+                                  <option value="Europe">Europe</option>
+                                  <option value="USA">USA</option>
+                                </select>
+                                <label>Place of Origin:</label>
+                            </div>
+                            <div className="input-field col s12">
+                                <select ref="technology" defaultValue={this.props.fieldValues.technology}>
+
+                                  <option value="Monocrystalline">Monocrystalline</option>
+                                  <option value="Multicrystalline">Multicrystalline</option>
+
+                                </select>
+                                <label>Technology:</label>
+                            </div>
+                            <div className="input-field col s12">
+                                <select ref="type" defaultValue={this.props.fieldValues.type}>
+
+                                  <option value="N">N</option>
+                                  <option value="P">P</option>
+
+                                </select>
+                                <label>Type:</label>
+                            </div>
+                            <div className="input-field col s12">
+                                <select ref="dualglass" defaultValue={this.props.fieldValues.dualglass}>
+
+                                  <option value="Yes">Yes</option>
+                                  <option value="No">No</option>
+                                </select>
+                                <label>Dual Glass:</label>
+                            </div>
+                            <div className="input-field col s12">
+                                <select ref="antipid" defaultValue={this.props.fieldValues.antipid}>
+
+                                  <option value="Yes">Yes</option>
+                                  <option value="No">No</option>
+                                </select>
+                                <label>Anti-PID:</label>
+                            </div>
+                            <div className="input-field col s12">
+                                <input type="number" className="validate" ref="snowload" defaultValue={this.props.fieldValues.snowload}/>
+                                <label htmlFor="first_name">Snow Load:</label>
+                            </div>
+                            <div className="input-field col s12">
+                                <input type="number" className="validate" ref="windload" defaultValue={this.props.fieldValues.windload}/>
+                                <label htmlFor="first_name">Wind Load:</label>
+                            </div>
+                            <div className="input-field col s12">
+                                      <textarea id="textarea1" className="materialize-textarea" ref="keyfeature" defaultValue={this.props.fieldValues.keyfeature}></textarea>
+                                      <label htmlFor="textarea1">Key Features:</label>
+                            </div>
+                            <div className="form-group">
+                              <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save And Continue</button>
+                            </div>
+                          </div>
                         </form>
                     </div>
                   </div>
                 </div>
               </div>
-              <form className="col s12">
-                <div className="row">
-                  <div className="input-field col s12">
-                    <input id="first_name" type="text" className="validate" ref="moduleName" defaultValue={this.props.fieldValues.moduleName}/>
-                    <label htmlFor="first_name">Module Name:</label>
-                  </div>
-                  <div className="input-field col s12">
-                      <select ref="poo" defaultValue={this.props.fieldValues.poo}>
-                        
-                        <option value="China">China</option>
-                        <option value="Europe">Europe</option>
-                        <option value="USA">USA</option>
-                      </select>
-                      <label>Place of Origin:</label>
-                  </div>
-                  <div className="input-field col s12">
-                      <select ref="technology" defaultValue={this.props.fieldValues.technology}>
-                        
-                        <option value="Monocrystalline">Monocrystalline</option>
-                        <option value="Multicrystalline">Multicrystalline</option>
-
-                      </select>
-                      <label>Technology:</label>
-                  </div>
-                  <div className="input-field col s12">
-                      <select ref="type" defaultValue={this.props.fieldValues.type}> 
-                        
-                        <option value="N">N</option>
-                        <option value="P">P</option>
-
-                      </select>
-                      <label>Type:</label>
-                  </div>
-                  <div className="input-field col s12">
-                      <select ref="dualglass" defaultValue={this.props.fieldValues.dualglass}>
-                        
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                      </select>
-                      <label>Dual Glass:</label>
-                  </div>
-                  <div className="input-field col s12">
-                      <select ref="antipid" defaultValue={this.props.fieldValues.antipid}>
-                        
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                      </select>
-                      <label>Anti-PID:</label>
-                  </div>
-                  <div className="input-field col s12">
-                      <input type="number" className="validate" ref="snowload" defaultValue={this.props.fieldValues.snowload}/>
-                      <label htmlFor="first_name">Snow Load:</label>
-                  </div>
-                  <div className="input-field col s12">
-                      <input type="number" className="validate" ref="windload" defaultValue={this.props.fieldValues.windload}/>
-                      <label htmlFor="first_name">Wind Load:</label>
-                  </div>
-                  <div className="input-field col s12">
-                            <textarea id="textarea1" className="materialize-textarea" ref="keyfeature" defaultValue={this.props.fieldValues.keyfeature}></textarea>
-                            <label htmlFor="textarea1">Key Features:</label>
-                  </div>
-                  <div className="form-group">
-                    <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save And Continue</button>
-                  </div>
-                </div>
-              </form>
             </div>
 
         )
