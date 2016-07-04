@@ -22,6 +22,8 @@ Signinform = React.createClass({
         Meteor.loginWithPassword(username, password, function (e) {
             if(e){
                 that.displayError(e.reason)
+                // console.log(e);
+                toastr.error(e.reason);
             } else{
                 Meteor.setTimeout(function(){
                     FlowRouter.go('/dashboard');
@@ -47,7 +49,7 @@ Signinform = React.createClass({
                                     <input type="password" placeholder="Password" ref="password"
                                            className="form-control"/>
                                 </div>
-                                
+
                                 <div className="form-group col-sm-12">
                                     <button type="submit" className="btn btn-md orange darken-4 btn-100">Sign In</button>
                                 </div>
