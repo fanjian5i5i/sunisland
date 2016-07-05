@@ -5,14 +5,17 @@ Generalinfo = React.createClass({
 
         data.currentUser = {};
         var handle = Meteor.subscribe("modules");
-        if(handle.ready()){
+        var imagehandle = Meteor.subscribe('imagelist');
+        if(handle.ready() && imagehandle.ready()){
             data.currentUser = Meteor.user();
+            data.img = "http://placehold.it/150x150";
         }
         return data;
     },
     getInitialState(){
         return {
             klass:'img-circle img-responsive custom-input-file',
+            imgid:"",
             editmode:false,
             email:this.data && this.data.currentUser && this.data.currentUser.emails ? this.data.currentUser.emails[0].address:'you@yourdomain.com',
         }
@@ -20,7 +23,8 @@ Generalinfo = React.createClass({
     componentDidMount: function() {
         $('select').material_select();
         Materialize.updateTextFields();
-      },
+        // console.log(this.data.img);
+    },
     componentWillReceiveProps: function(){
       console.log(this.props.moduleId);
       var that = this;
@@ -29,6 +33,8 @@ Generalinfo = React.createClass({
           if(err){
               Materialize.toast('Cannot find module ' + that.props.moduleId, 4000);
           }else{
+              // that.data.img = Images.findOne({_id:result.image});
+              that.setState({imgid:result.image});
               // that.props.saveValues(result);
               that.refs.moduleName.value=result.moduleName;
               that.refs.poo.value = result.poo;
@@ -45,6 +51,24 @@ Generalinfo = React.createClass({
       }else{
         console.log("not first");
       }
+
+
+    },
+    uploadFile(e){
+        e.preventDefault();
+        // console.log(e);
+        var that = this;
+        var image;
+        FS.Utility.eachFile(e, function (file) {
+            console.log(file);
+            Images.insert(file, function (err, fileObj) {
+                Meteor.call('changeModuleImg', that.props.moduleId, fileObj._id);
+                // setTimeout(function(){
+                //     that.setState({klass:'responsive-img'});
+                // },100)
+            });
+
+        });
 
 
     },
@@ -68,7 +92,6 @@ Generalinfo = React.createClass({
         // FlowRouter.go('/newmodule/electricalinfo');
     },
     render(){
-        // console.log(this.state);
         $('select').material_select();
         return (
           <div className="input-tab">
@@ -76,7 +99,7 @@ Generalinfo = React.createClass({
                 <div className="col s12">
                   <div className="card">
                     <div className="card-image">
-                      <img src="http://placehold.it/150x150"/>
+                      <Avatar imgid={this.state.imgid}/>
                     </div>
                     <div className="card-content">
                         <span className
@@ -85,7 +108,7 @@ Generalinfo = React.createClass({
                           <div className="file-field input-field col s12">
                             <div className="btn">
                               <span>Upload</span>
-                              <input type="file"/>
+                              <input type="file" onChange={this.uploadFile}/>
                             </div>
                             <div className="file-path-wrapper">
                               <input className="file-path validate" type="text"/>

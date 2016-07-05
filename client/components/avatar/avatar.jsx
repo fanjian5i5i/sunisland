@@ -1,17 +1,15 @@
 Avatar = React.createClass({
     getInitialState(){
         let state = {};
-        state.avatar = 'http://placehold.it/60x60';
+        state.avatar = 'http://placehold.it/250x250';
         return state;
     },
     mixins: [ReactMeteorData],
     getMeteorData(){
-        var userhandle = Meteor.subscribe('userlist',this.props.user);
         var imagehandle = Meteor.subscribe('imagelist',this.props.user);
         var data = {};
-        if(userhandle.ready() && imagehandle.ready()){
-            data.usr = Meteor.users.findOne({_id:this.props.user});
-            data.img = Images.findOne({_id:data.usr.profile.avatar});
+        if(imagehandle.ready()){
+            data.img = Images.findOne({_id:this.props.imgid});
         }
         return data;
     },

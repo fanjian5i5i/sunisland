@@ -23,12 +23,8 @@ Profile = React.createClass({
     componentDidMount(){
        setTimeout(function(){ Materialize.updateTextFields(); }, 500);
     },
-    changeEmail(e){
+    saveProfile(e){
         e.preventDefault();
-        Meteor.call('changeEmail',e.target.value);
-        this.toggleEdit();
-        this.setState({ email: e.target.value });
-
     },
     uploadFile(e){
         e.preventDefault();
@@ -58,34 +54,85 @@ Profile = React.createClass({
     getContent(){
         // this.setState({"currentUser":this.data.currentUser});
         return(
-            <div className="row">
-                <div className="input-field col s12">
-                  <label htmlFor="email">Email:</label>
-                  <input id="email" type="email" ref="email" defaultValue={this.data.currentUser.profile.email}/>
-                </div>
-                <div className="input-field col s12">
-                  <label htmlFor="email">Work Phone Number:</label>
-                  <input id="email" type="number" ref="workphone" defaultValue={this.data.currentUser.profile.workphone}/>
-                </div>
-                <div className="input-field col s12">
-                  <label htmlFor="email">Account Manager:</label>
-                  <input id="email" type="text" ref="accountmanager" defaultValue={this.data.currentUser.profile.accountmanager}/>
-                </div>
-                <div className="input-field col s12">
-                  <label htmlFor="email">Company Name:</label>
-                  <input id="email" type="text" ref="company" defaultValue={this.data.currentUser.profile.company}/>
-                </div>
-                <div className="input-field col s12">
-                  <label htmlFor="email">Headquarter Location:</label>
-                  <input id="email" type="text" ref="headquarter" defaultValue={this.data.currentUser.profile.headquarter}/>
-                </div>
-                <div className="input-field col s12">
-                  <label htmlFor="email">Manufacturing Location:</label>
-                  <input id="email" type="text" ref="manufacturinglocation" defaultValue={this.data.currentUser.profile.manufacturinglocation}/>
-                </div>
-                <div className="input-field col s12">
-                  <label htmlFor="email">Company Module Capacity(MW):</label>
-                  <input id="email" type="text" ref="companymodulecapacity" defaultValue={this.data.currentUser.profile.companymodulecapacity}/>
+        
+            <div className="input-tab">
+                <div className="row">
+                  <div className="col s12">
+                    <div className="card">
+
+                      <div className="card-content">
+                          <span className="card-title">Company Information</span>
+                          <form>
+                            <div className="row">
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Company Name:</label>
+                                  <input id="email" type="text" ref="company" defaultValue={this.data.currentUser.profile.company}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Headquarter Location:</label>
+                                  <input id="email" type="text" ref="headquarter" defaultValue={this.data.currentUser.profile.headquarter}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Manufacturing Location:</label>
+                                  <input id="email" type="text" ref="manufacturinglocation" defaultValue={this.data.currentUser.profile.manufacturinglocation}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Company Module Capacity(MW):</label>
+                                  <input id="email" type="text" ref="companymodulecapacity" defaultValue={this.data.currentUser.profile.companymodulecapacity}/>
+                                </div>
+                            </div>
+                           </form> 
+                           <span className="card-title">Contact Information</span>
+                           <form>     
+                                <div className="row">
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Account Manager Name:</label>
+                                  <input id="email" type="text" ref="accountmanager" defaultValue={this.data.currentUser.profile.accountmanager}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Account Manager Title:</label>
+                                  <input id="email" type="text" ref="accountmanagertitle" defaultValue={this.data.currentUser.profile.accountmanagertitle}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Account Manager Name(Secondary):</label>
+                                  <input id="email" type="text" ref="accountmanager2" defaultValue={this.data.currentUser.profile.accountmanager2}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Account Manager Title(Secondary):</label>
+                                  <input id="email" type="text" ref="accountmanagertitle2" defaultValue={this.data.currentUser.profile.accountmanagertitle2}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Email:</label>
+                                  <input id="email" type="email" ref="email" defaultValue={this.data.currentUser.profile.email}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Email(Secondary):</label>
+                                  <input id="email" type="email" ref="email2" defaultValue={this.data.currentUser.profile.email2}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Work Phone Number:</label>
+                                  <input id="email" type="number" ref="workphone" defaultValue={this.data.currentUser.profile.workphone}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Cell Phone Number:</label>
+                                  <input id="email" type="number" ref="cellphone" defaultValue={this.data.currentUser.profile.cellphone}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Work Phone Number(Secondary):</label>
+                                  <input id="email" type="number" ref="workphone2" defaultValue={this.data.currentUser.profile.workphone2}/>
+                                </div>
+                                <div className="input-field col s12">
+                                  <label htmlFor="email">Cell Phone Number(Secondary):</label>
+                                  <input id="email" type="number" ref="cellphone2" defaultValue={this.data.currentUser.profile.cellphone2}/>
+                                </div>
+                                <div className="form-group">
+                                  <button type="button" className="btn btn-success pull-right" onClick={this.saveProfile}>Save</button>
+                                </div>
+                            </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
         )
@@ -107,20 +154,10 @@ Profile = React.createClass({
                 <div className="row">
                     <div className="main-right">
                         <InputHeader propsTitle={"Profile"}/>
-                        <div className="input-tab">
-                          <form className="col s12">
-                            <div className="row">
-
-
-
-
+                            <div className="container">
                               {this.data.currentUser? this.getContent(): <p>Loading...</p>}
-
                             </div>
-                            
-                          </form>
                         </div>
-                    </div>
                 </div>
 
 

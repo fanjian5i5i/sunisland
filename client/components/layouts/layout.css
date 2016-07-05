@@ -17,6 +17,10 @@
 .icons-margin-top{
     margin-top: 4px;
 }
+.main-right{
+      /*background-color: #eceff1;*/
+  }
+
 @media screen and (min-width: 992px) {
   .main-right{
       padding-left: 240px;

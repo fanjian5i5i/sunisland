@@ -85,7 +85,7 @@ Meteor.startup(function () {
             }
             var data = file._id;
 
-            Meteor.Modules.update(moduleid, {$set: {'image': data}});
+            Modules.update(moduleid, {$set: {'image': data}});
         },
         'sendMessage':function(person,subject,message){
             var to = Meteor.users.findOne({_id: person});

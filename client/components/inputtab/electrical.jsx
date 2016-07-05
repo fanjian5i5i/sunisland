@@ -39,7 +39,7 @@ Electricalinfo = React.createClass({
                   <div className="card">
                     <div className="card-content">
                       <form>
-
+                        <div className="row">
                           <div className="input-field col s12">
                             <label htmlFor="power">Power(Wp):</label>
                             <input id="power" type="number" ref="power" defaultValue={this.props.fieldValues.power}/>
@@ -56,7 +56,7 @@ Electricalinfo = React.createClass({
                             <button type="button" className="btn btn-info pull-left" onClick={this.props.previousStep}>Back</button>
                             <button type="button" className="btn btn-success pull-right" onClick={this.saveAndContinue}>Save And Continue</button>
                           </div>
-                        
+                        </div>
                       </form>
                     </div>
                   </div>
