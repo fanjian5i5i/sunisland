@@ -88,3 +88,11 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
     text-align: center;
     /*font-weight: bolder;*/
 }
+.boston{
+  background-image: ''
+}
+
+.navlogo{
+  padding-left: 15px;
+  width: 150px;
+}

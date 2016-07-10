@@ -16,6 +16,12 @@ publicRoutes.route('/', {
         ReactLayout.render(Homelayout, {});
     }
 });
+publicRoutes.route('/welcome', {
+    name: 'welcome',
+    action: function () {
+        ReactLayout.render(Welcomelayout,{});
+    }
+});
 publicRoutes.route('/signin', {
     name: 'Home',
     action: function () {
