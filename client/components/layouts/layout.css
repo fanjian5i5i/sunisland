@@ -94,5 +94,14 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 
 .navlogo{
   padding-left: 15px;
-  width: 150px;
+  width: 150px;  
+}
+.nav-welcome{
+  background-color: rgba(238, 110, 115, 0);
+  box-shadow: none !important;
+}
+
+.margin-welcome{
+  margin-top: -64px;
+  height: 1080px;
 }
