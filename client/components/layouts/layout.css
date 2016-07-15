@@ -105,3 +105,16 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   margin-top: -64px;
   height: 1080px;
 }
+
+.inactive{
+  color:black;
+}
+
+.btn-search{
+  position: absolute;
+  margin-top: -61px;
+  right: 0px;
+  border-radius: 0px 4px 4px 0px;
+  height:45px;
+  line-height: 45px;
+}

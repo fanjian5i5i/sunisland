@@ -5,9 +5,10 @@ Welcomelayout = React.createClass({
             'height': '50px','with':'150px'
         };
         return (
-            <div className="row">
+            <div>
                 <NavbarPublic/>
                 <Homebanner/>
+                <HomeFooter/>
             </div>
         )
     }
