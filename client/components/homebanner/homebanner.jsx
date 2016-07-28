@@ -6,6 +6,30 @@ Homebanner = React.createClass({
     },
     componentDidMount(){
     },
+    _handleKeyPress(e){
+        // e.preventDefault();
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            HTTP.call( 'GET', 'http://maps.googleapis.com/maps/api/geocode/json?address='+this.refs.address.value, function( error, response ) {
+              // Handle the error or response here.
+              if(!error){
+                console.log(response.data.results[0].geometry.location)
+                FlowRouter.go('/map/address?lat=' + response.data.results[0].geometry.location.lat + '&lng='+ response.data.results[0].geometry.location.lng);
+              }
+            });
+            // console.log(2);
+        }
+    },
+    handleClick(e){
+        e.preventDefault();
+        HTTP.call( 'GET', 'http://maps.googleapis.com/maps/api/geocode/json?address='+this.refs.address.value, function( error, response ) {
+          // Handle the error or response here.
+          if(!error){
+            console.log(response.data.results[0].geometry.location)
+            FlowRouter.go('/map/address?lat=' + response.data.results[0].geometry.location.lat + '&lng='+ response.data.results[0].geometry.location.lng);
+          }
+        });
+    },
     render(){
         const styles = {
             bkgStyle:{
@@ -22,19 +46,18 @@ Homebanner = React.createClass({
                 borderRadius:4
             },
             searchIcon:{
+                color:"#ffa726",
                 fontSize:"2.5em",
                 margin:4,
-                position:"absolute"
-            },
-            searchInput:{
-
+                position:"absolute",
+                zIndex:99
             }
         }
         return (
             <div className="intro valign-wrapper green shades-text text-white no-margin margin-welcome" style={styles.bkgStyle}>
                 <div className="container">
                     <div className="row">
-                        <div className="col l12 s12">
+                        <div className="col l12 s12 center-align">
                             <h3>Help Everyone Generate Solar Power</h3>
                         </div>
                     </div>
@@ -46,11 +69,11 @@ Homebanner = React.createClass({
 
                               <form className="lighten-3">
                                     <i className="material-icons" style={styles.searchIcon}>search</i>
-                                    <div className="input-field">
-                                        <input id="search" type="search" required placeholder="Enter your home address..."/>
+                                    <div className="input-field searchInput">
+                                        <input id="search" type="search" required placeholder="Enter your home address..." ref="address" onKeyPress = {this._handleKeyPress}/>
                                         <i className="mdi-navigation-close close"></i>
                                     </div>
-                                    <a className="waves-effect waves-light btn btn-search">Search</a>
+                                    <a className="waves-effect waves-light btn btn-search orange lighten-1" onClick={this.handleClick} >Search</a>
                                 </form>
                             </div>
                           </div>

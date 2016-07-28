@@ -22,6 +22,16 @@ publicRoutes.route('/welcome', {
         ReactLayout.render(Welcomelayout,{});
     }
 });
+publicRoutes.route('/map/:address', {
+    name: 'Map.html',
+    action: function (params, queryParams) {
+        console.log(params);
+        ReactLayout.render(Layout, {
+            sidebar: <Sidebar/>,
+            content: <Mapcontainer address={queryParams}/>
+        })
+    }
+});
 publicRoutes.route('/signin', {
     name: 'Home',
     action: function () {
