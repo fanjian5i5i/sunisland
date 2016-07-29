@@ -13,7 +13,8 @@ GoogleMap = React.createClass({
     GoogleMaps.ready(this.props.name, function(map) {
       var marker = new google.maps.Marker({
         position: map.options.center,
-        map: map.instance
+        map: map.instance,
+        icon: "/images/marker.png"
       });
     });
   },

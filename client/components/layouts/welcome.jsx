@@ -6,7 +6,7 @@ Welcomelayout = React.createClass({
         };
         return (
             <div>
-                <NavbarPublic/>
+                <NavbarPublic logo={"/images/logo.png"}/>
                 <Homebanner/>
                 <HomeFooter/>
             </div>

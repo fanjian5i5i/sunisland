@@ -13,8 +13,9 @@ Mapcontainer = React.createClass({
   _mapOptions() {
     return {
       center: new google.maps.LatLng(this.props.address.lat,this.props.address.lng),
-      zoom: 18,
+      zoom: 19,
       mapTypeId: google.maps.MapTypeId.SATELLITE,
+      
     };
   },
   render() {

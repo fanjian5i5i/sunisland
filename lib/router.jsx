@@ -26,8 +26,7 @@ publicRoutes.route('/map/:address', {
     name: 'Map.html',
     action: function (params, queryParams) {
         console.log(params);
-        ReactLayout.render(Layout, {
-            sidebar: <Sidebar/>,
+        ReactLayout.render(Maplayout, {
             content: <Mapcontainer address={queryParams}/>
         })
     }

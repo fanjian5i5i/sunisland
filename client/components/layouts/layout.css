@@ -97,7 +97,8 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   width: 150px;  
 }
 .nav-welcome{
-  background-color: rgba(238, 110, 115, 0);
+  /*background-color: rgba(238, 110, 115, 0);*/
+  /*background-image: url("/images/bostonbkgrd-banner");*/
   box-shadow: none !important;
 }
 
