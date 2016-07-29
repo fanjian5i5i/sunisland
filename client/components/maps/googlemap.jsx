@@ -16,6 +16,10 @@ GoogleMap = React.createClass({
         map: map.instance,
         icon: "/images/marker.png"
       });
+      var ctaLayer = new google.maps.KmlLayer({
+          url: 'https://s3.amazonaws.com/nbsolar-product-img/kml/doc.kml',
+          map: map.instance
+        });
     });
   },
   componentWillUnmount() {

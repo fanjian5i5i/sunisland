@@ -3,6 +3,15 @@ Mapcontainer = React.createClass({
   componentDidMount() {
     GoogleMaps.load({key:'AIzaSyAE68vsDEztBYLzlKgYCtg2Z5Ffi8pb9wY'});
     console.log(this.props.address);
+    // console.log(HTTP);
+    var httpStr = "https://fanjian5i5i.carto.com/api/v2/sql?q=SELECT * FROM structures_poly_35 ORDER BY the_geom <-> ST_SetSRID(ST_MakePoint("+ this.props.address.lng +", "+ this.props.address.lat +"), 4326) LIMIT 1";
+    HTTP.call("GET", httpStr,
+      function (error, result) {
+        if (!error) {
+          // Session.set("twizzled", true);
+          console.log(result);
+        }
+      });
   },
   getMeteorData() {
     return {
@@ -15,6 +24,7 @@ Mapcontainer = React.createClass({
       center: new google.maps.LatLng(this.props.address.lat,this.props.address.lng),
       zoom: 19,
       mapTypeId: google.maps.MapTypeId.SATELLITE,
+      tilt:0
       
     };
   },
