@@ -16,7 +16,8 @@ Mapcontainer = React.createClass({
       function (error, result) {
         if (!error) {
           // Session.set("twizzled", true);
-          that.setState({area:result.data.rows[0].area_sq_ft})
+          console.log(result);
+          that.setState({area:result.data.rows[0].shape_area})
         }
       });
   },
@@ -32,7 +33,7 @@ Mapcontainer = React.createClass({
       zoom: 19,
       mapTypeId: google.maps.MapTypeId.SATELLITE,
       tilt:0
-      
+
     };
   },
   render() {
@@ -49,7 +50,7 @@ Mapcontainer = React.createClass({
         </main>
       )
 
-      
+
 
     return <div>Loading map...</div>;
   }

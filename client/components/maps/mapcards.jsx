@@ -14,7 +14,7 @@ Mapcards = React.createClass({
               // Handle the error or response here.
               if(!error){
                 console.log(response.data.results[0].geometry.location)
-                FlowRouter.go('/map/address?lat=' + response.data.results[0].geometry.location.lat + '&lng='+ response.data.results[0].geometry.location.lng);
+                window.location.href ='/map/address?lat=' + response.data.results[0].geometry.location.lat + '&lng='+ response.data.results[0].geometry.location.lng;
               }
             });
             // console.log(2);
@@ -26,7 +26,8 @@ Mapcards = React.createClass({
           // Handle the error or response here.
           if(!error){
             console.log(response.data.results[0].geometry.location)
-            FlowRouter.go('/map/address?lat=' + response.data.results[0].geometry.location.lat + '&lng='+ response.data.results[0].geometry.location.lng);
+            window.location.href ='/map/address?lat=' + response.data.results[0].geometry.location.lat + '&lng='+ response.data.results[0].geometry.location.lng;
+            // FlowRouter.reload('/map/address?lat=' + response.data.results[0].geometry.location.lat + '&lng='+ response.data.results[0].geometry.location.lng);
           }
         });
     },
@@ -56,12 +57,12 @@ Mapcards = React.createClass({
                 paddingTop:6
             }
         };
-        var sqft = this.props.params.area
+        var sqft = Math.round(this.props.params.area);
         return (
                 <div className="row">
                     <div className="container">
                         <div className="col l6 offset-l3 m12 s12">
-                            
+
                           <div className="card white">
                             <div className="card-content" style={styles.searchStyle}>
 
